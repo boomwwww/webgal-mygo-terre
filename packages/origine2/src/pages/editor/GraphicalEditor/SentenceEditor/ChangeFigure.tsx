@@ -23,6 +23,7 @@ type FigurePosition = "" | "left" | "right";
 type AnimationFlag = "" | "on";
 type LoopMode = "true" | "false" | "disappear";
 
+
 // eslint-disable-next-line complexity
 export default function ChangeFigure(props: ISentenceEditorProps) {
   const gameDir = useEditorStore.use.subPage();
