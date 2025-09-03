@@ -57,27 +57,27 @@ const IconCreator = ({ gameDir, triggerButton }: { gameDir: string, triggerButto
   const canvasSize = 1536;
 
   /**
-   * 定义各级图标在裁剪时，单边裁切的内边距（inset）百分比。
-   *
-   * ### 裁剪步骤
-   *
-   * 1.  **定义核心安全区域 (Safe Zone)**
-   * 首先，从 1536px 的原始画布的每一边裁掉由 `main` 属性定义的百分比（例如 1/6）。
-   * 这会形成一个中心的安全区域，其宽度为原始画布的 2/3。所有重要的、必须可见的
-   * 图标内容都应完全放置在这个安全区域内。
-   *
-   * 2.  **从安全区域到最终图标**
-   * 接着，在第一步产生的安全区域的基础上，为不同平台（Web, Electron, Android）
-   * 生成最终图标时，再从每一边额外裁掉相应属性（如 `web`, `electron`, `android.legacy`）
-   * 定义的距离百分比。这确保了图标在不同平台的特定形状遮罩下依然有最佳的视觉表现。
-   *
-   * @property {number} main - **第一步裁剪**: 定义核心安全区域的内边距百分比。
-   * @property {number} web - **第二步裁剪**: 为生成 Web 图标，在安全区域基础上额外裁切的内边距。
-   * @property {number} electron - **第二步裁剪**: 为生成 Electron 桌面应用图标，在安全区域基础上额外裁切的内边距。
-   * @property {object} android - **第二步裁剪**: 针对 Android 不同图标类型的额外裁切配置。
-   * @property {number} android.legacy - 用于生成旧版 Android (API < 26) 传统图标的额外内边距。
-   * @property {number} android.round - 用于生成圆形 Android 图标（例如在 Pixel 设备上）的额外内边距。
-   */
+ * 定义各级图标在裁剪时，单边裁切的内边距（inset）百分比。
+ *
+ * ### 裁剪步骤
+ *
+ * 1.  **定义核心安全区域 (Safe Zone)**
+ * 首先，从 1536px 的原始画布的每一边裁掉由 `main` 属性定义的百分比（例如 1/6）。
+ * 这会形成一个中心的安全区域，其宽度为原始画布的 2/3。所有重要的、必须可见的
+ * 图标内容都应完全放置在这个安全区域内。
+ *
+ * 2.  **从安全区域到最终图标**
+ * 接着，在第一步产生的安全区域的基础上，为不同平台（Web, Electron, Android）
+ * 生成最终图标时，再从每一边额外裁掉相应属性（如 `web`, `electron`, `android.legacy`）
+ * 定义的距离百分比。这确保了图标在不同平台的特定形状遮罩下依然有最佳的视觉表现。
+ *
+ * @property {number} main - **第一步裁剪**: 定义核心安全区域的内边距百分比。
+ * @property {number} web - **第二步裁剪**: 为生成 Web 图标，在安全区域基础上额外裁切的内边距。
+ * @property {number} electron - **第二步裁剪**: 为生成 Electron 桌面应用图标，在安全区域基础上额外裁切的内边距。
+ * @property {object} android - **第二步裁剪**: 针对 Android 不同图标类型的额外裁切配置。
+ * @property {number} android.legacy - 用于生成旧版 Android (API < 26) 传统图标的额外内边距。
+ * @property {number} android.round - 用于生成圆形 Android 图标（例如在 Pixel 设备上）的额外内边距。
+ */
   const clipInset = {
     main: 1 / 6,
     web: 0.0636,
@@ -88,7 +88,7 @@ const IconCreator = ({ gameDir, triggerButton }: { gameDir: string, triggerButto
     }
   };
 
-  const getRoundedRectangleRadius = () => gridCanvasRef.current !== null
+  const getRoundedRectangleRadius = () => gridCanvasRef.current !== null 
     ? 34 * (canvasSize * (1 - clipInset.main * 2) / gridCanvasRef.current.clientWidth)
     : null;
 
@@ -125,7 +125,7 @@ const IconCreator = ({ gameDir, triggerButton }: { gameDir: string, triggerButto
         } else if (iconShape === 'circle') {
           ctx.arc(centerX, centerY, clippedSize / 2, 0, Math.PI * 2);
         } else if (iconShape === 'rounded-rectangle') {
-
+          
           const startX = (canvasSize - clippedSize) / 2;
           const startY = (canvasSize - clippedSize) / 2;
           ctx.moveTo(startX + radius, startY);
@@ -304,7 +304,7 @@ const IconCreator = ({ gameDir, triggerButton }: { gameDir: string, triggerButto
     let timeoutId: ReturnType<typeof setTimeout> | null = null;
 
     if (activeIndex === 1) {
-      const ANIMATION_DURATION = 750;
+      const ANIMATION_DURATION = 750; 
 
       timeoutId = setTimeout(() => {
         generateAllIcons().then(() => {
@@ -317,7 +317,7 @@ const IconCreator = ({ gameDir, triggerButton }: { gameDir: string, triggerButto
     }
 
     return () => {
-      isMounted = false;
+      isMounted = false; 
 
       if (timeoutId) {
         clearTimeout(timeoutId);
@@ -349,17 +349,17 @@ const IconCreator = ({ gameDir, triggerButton }: { gameDir: string, triggerButto
   };
 
   /**
-   * 将源 Canvas 的一部分裁剪到一个新的 Canvas 中。
-   *
-   * @param sourceCanvas 要从中裁剪的源 Canvas。
-   * @param inset 裁剪内边距百分比 (0-1)。
-   * @param shape 期望的输出形状。
-   * @param radius - (可选) 如果形状是圆角矩形，需要提供计算好的圆角半径。
-   * @param preservePadding - (可选) 如果为 true，则返回的画布尺寸与 sourceCanvas 相同，
-   * 并将裁剪后的内容居中放置，从而保留周围的空白边距。
-   * 默认为 false，返回紧凑的、无边距的画布。
-   * @returns 一个包含平滑裁剪后图像的新 HTMLCanvasElement。
-   */
+ * 将源 Canvas 的一部分裁剪到一个新的 Canvas 中。
+ *
+ * @param sourceCanvas 要从中裁剪的源 Canvas。
+ * @param inset 裁剪内边距百分比 (0-1)。
+ * @param shape 期望的输出形状。
+ * @param radius - (可选) 如果形状是圆角矩形，需要提供计算好的圆角半径。
+ * @param preservePadding - (可选) 如果为 true，则返回的画布尺寸与 sourceCanvas 相同，
+ * 并将裁剪后的内容居中放置，从而保留周围的空白边距。
+ * 默认为 false，返回紧凑的、无边距的画布。
+ * @returns 一个包含平滑裁剪后图像的新 HTMLCanvasElement。
+ */
   const clipToCanvas = (
     sourceCanvas: HTMLCanvasElement,
     inset: number,
@@ -422,9 +422,9 @@ const IconCreator = ({ gameDir, triggerButton }: { gameDir: string, triggerButto
   };
 
   /**
-   * 将源 Canvas 调整为指定尺寸和格式的新图像。
-   * @returns 一个 Promise，它解析为调整大小后图像的 Blob 对象。
-   */
+ * 将源 Canvas 调整为指定尺寸和格式的新图像。
+ * @returns 一个 Promise，它解析为调整大小后图像的 Blob 对象。
+ */
   const resizeCanvasToBlob = (
     sourceCanvas: HTMLCanvasElement,
     size: number,
