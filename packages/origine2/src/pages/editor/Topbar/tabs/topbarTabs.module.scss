@@ -132,3 +132,13 @@
   align-items: center;
   gap: 8px;
 }
+
+.tips {
+  color: var(--text-weak);
+  font-weight: bolder;
+  font-size: smaller;
+  text-align: left;
+  height: 100%;
+  padding: 4px;
+  border-radius: 4px;
+}
