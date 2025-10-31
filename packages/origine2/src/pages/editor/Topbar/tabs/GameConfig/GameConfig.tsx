@@ -248,9 +248,9 @@ export default function GameConfig() {
             value={getConfigContentAsString('Positioning_Type') ? getConfigContentAsString('Positioning_Type') : ''}
             selectItems={[
               {key: '', text: t`默认`},
-              {key: 'W_4_5_12', text: `MyGO 2.3`},
-              {key: 'W_4_5_13', text: `MyGO 2.4`},
-              {key: 'BC_1_0_0', text: `MyGO 3.0.0`},
+              {key: 'M_2_3', text: `MyGO 2.3`},
+              {key: 'M_2_4', text: `MyGO 2.4`},
+              {key: 'M_3_0_0', text: `MyGO 3.0.0`},
               {key: 'M_3_1_0', text: `MyGO 3.1.0`},
             ]}
             onChange={(e: string) => updateGameConfigSimpleByKey('Positioning_Type', e)}
