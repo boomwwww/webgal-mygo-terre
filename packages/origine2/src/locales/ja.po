@@ -30,7 +30,7 @@ msgstr "<0>新しいテンプレートを適用する</0>"
 msgid "<0>当前应用的模板：{currentTemplateName}</0>"
 msgstr "<0>現在適用中のテンプレート：{currentTemplateName}</0>"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:301
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:368
 msgid "1, 2, 3, ..."
 msgstr "1, 2, 3, ..."
 
@@ -94,11 +94,15 @@ msgstr "Intro テキスト"
 msgid "intro:;"
 msgstr "intro:;"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:307
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:387
 msgid "Live2D 动作"
 msgstr "Live2D モーション"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:318
+#: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:244
+msgid "Live2D 定位类型"
+msgstr "Live2D の位置タイプ"
+
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:398
 msgid "Live2D 表情"
 msgstr "Live2D 表情"
 
@@ -142,7 +146,7 @@ msgstr "setTransform: -duration=0;"
 msgid "setTransition:;"
 msgstr "setTransition:;"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:307
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:387
 msgid "Spine 动画"
 msgstr "Spine アニメーション"
 
@@ -195,7 +199,7 @@ msgstr "Y軸位移"
 msgid "Y轴缩放"
 msgstr "Y軸スケール"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:293
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:360
 msgid "z-index"
 msgstr "z-index"
 
@@ -249,7 +253,7 @@ msgstr " ワード"
 msgid "中"
 msgstr "中央"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:58
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:65
 msgid "中间"
 msgstr "中央"
 
@@ -339,7 +343,7 @@ msgstr "以前に設定されたアクションターゲットを使用。IDを�
 msgid "使用预设目标"
 msgstr "事前設定されたターゲットを使用"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:461
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:551
 msgid "例如：-100,-100,100,100"
 msgstr "例えば：-100,-100,100,100"
 
@@ -355,7 +359,7 @@ msgstr "サイドバーゲームプレビュー"
 msgid "保存"
 msgstr "セーブ"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:504
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:594
 msgid "保持闭眼(毫秒)"
 msgstr "目を閉じたままにする時間(ミリ秒)"
 
@@ -434,7 +438,7 @@ msgstr "関連する立ち絵"
 
 #: src/pages/editor/GraphicalEditor/components/EffectEditor.tsx:334
 #: src/pages/editor/GraphicalEditor/components/SearchableCascader.tsx:228
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:148
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:161
 #: src/pages/editor/GraphicalEditor/SentenceEditor/SetAnimation.tsx:96
 #: src/pages/editor/GraphicalEditor/SentenceEditor/SetTransform.tsx:137
 #: src/pages/editor/Topbar/tabs/Export/ExportTab.tsx:51
@@ -454,8 +458,8 @@ msgstr "アバターを非表示"
 msgid "关闭效果音"
 msgstr "効果音を停止"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:266
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:273
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:332
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:339
 msgid "关闭立绘"
 msgstr "立ち絵を非表示"
 
@@ -589,6 +593,10 @@ msgstr "更新"
 msgid "刷新游戏"
 msgstr "ゲームをリフレッシュ"
 
+#: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:258
+msgid "刷新游戏后生效"
+msgstr "ゲームをリフレッシュした後に有効"
+
 #: src/components/IconCreator/IconCreator.tsx:655
 msgid "前景"
 msgstr "Foreground"
@@ -606,7 +614,7 @@ msgstr "太字"
 msgid "动画"
 msgstr "アニメーション"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:409
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:499
 msgid "半张嘴"
 msgstr "半分開いた口"
 
@@ -654,7 +662,7 @@ msgstr "トランスフォーム"
 msgid "可选项"
 msgstr "選択可能な選択肢"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:60
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:67
 msgid "右侧"
 msgstr "右"
 
@@ -690,7 +698,7 @@ msgstr "有効化"
 msgid "启用视频跳过"
 msgstr "動画のスキップを有効にする"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:387
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:477
 msgid "唇形同步与眨眼"
 msgstr "口パクとまばたき"
 
@@ -930,7 +938,7 @@ msgstr "アバターを表示"
 msgid "属性"
 msgstr "プロパティ"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:59
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:66
 msgid "左侧"
 msgstr "左"
 
@@ -992,13 +1000,13 @@ msgid "延迟时间（秒）"
 msgstr "遅延時間（秒）"
 
 #: src/pages/editor/GraphicalEditor/components/EffectEditor.tsx:333
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:147
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:160
 #: src/pages/editor/GraphicalEditor/SentenceEditor/SetAnimation.tsx:96
 #: src/pages/editor/GraphicalEditor/SentenceEditor/SetTransform.tsx:137
 msgid "开启"
 msgstr "有効化"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:399
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:489
 msgid "张开嘴"
 msgstr "開いた口"
 
@@ -1010,6 +1018,14 @@ msgstr "強度"
 #: src/pages/dashboard/DashBoard.tsx:156
 msgid "当前版本"
 msgstr "現在のバージョン"
+
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:75
+msgid "循环播放"
+msgstr "ループ再生"
+
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:373
+msgid "循环模式（仅视频/GIF 立绘）"
+msgstr "ループモード（ビデオ/GIF 立ち絵のみ）"
 
 #: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:240
 msgid "德语"
@@ -1034,7 +1050,7 @@ msgid "手动输入 ID"
 msgstr "IDを手動で設定"
 
 #: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeBg.tsx:98
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:357
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:447
 #: src/pages/editor/GraphicalEditor/SentenceEditor/SetTransform.tsx:62
 msgid "打开效果编辑器"
 msgstr "エフェクトエディタを開く"
@@ -1109,7 +1125,7 @@ msgstr "ヒント: 編集後に無効なCG/BGMが見つかった場合は、WebG
 msgid "提示：换行符最多可达三行"
 msgstr "ヒント:改行は三行まで可能"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:550
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:640
 msgid "提示：效果只有在切换到不同立绘或关闭之前的立绘再重新添加时生效。如果你要为现有的立绘设置效果，请使用单独的设置效果命令"
 msgstr "ヒント：この効果は、異なる立ち絵に切り替えるか、一度立ち絵を閉じてから再度追加した場合にのみ有効です。既存の立ち絵に効果を設定する場合は、個別の効果設定コマンドを使用してください。"
 
@@ -1128,6 +1144,14 @@ msgstr "検索オプション"
 #: src/pages/editor/GraphicalEditor/SentenceEditor/index.tsx:120
 msgid "播放一小段视频"
 msgstr "動画ファイルを再生する"
+
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:77
+msgid "播放一次后消失"
+msgstr "一度再生した後に消える"
+
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:76
+msgid "播放一次并停在最后一帧"
+msgstr "一度再生して最後のフレームで停止する"
 
 #: src/pages/editor/GraphicalEditor/SentenceEditor/index.tsx:184
 msgid "播放一段效果音"
@@ -1162,7 +1186,7 @@ msgid "效果编辑"
 msgstr "エフェクトエディタ"
 
 #: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeBg.tsx:102
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:360
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:450
 #: src/pages/editor/GraphicalEditor/SentenceEditor/SetTransform.tsx:64
 msgid "效果编辑器"
 msgstr "エフェクトエディタ"
@@ -1362,7 +1386,7 @@ msgid "显示侧边栏"
 msgstr "サイドバーを表示"
 
 #: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeBg.tsx:95
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:354
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:444
 msgid "显示效果"
 msgstr "エフェクト"
 
@@ -1370,7 +1394,7 @@ msgstr "エフェクト"
 msgid "显示文本框"
 msgstr "テキストボックスを表示"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:273
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:339
 msgid "显示立绘"
 msgstr "立ち絵を表示"
 
@@ -1407,14 +1431,14 @@ msgid "本句前插入句子"
 msgstr "選択した文の前に追加"
 
 #: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeBg.tsx:80
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:290
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:357
 #: src/pages/editor/GraphicalEditor/SentenceEditor/SetAnimation.tsx:102
 #: src/pages/editor/GraphicalEditor/SentenceEditor/SetTransform.tsx:143
 msgid "本句执行后执行下一句"
 msgstr "この文が実行された後、次の文を実行"
 
 #: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeBg.tsx:81
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:291
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:358
 #: src/pages/editor/GraphicalEditor/SentenceEditor/SetAnimation.tsx:102
 #: src/pages/editor/GraphicalEditor/SentenceEditor/SetTransform.tsx:143
 msgid "本句执行后等待"
@@ -1510,11 +1534,11 @@ msgstr "フランス語"
 msgid "泛光"
 msgstr "ブルーム"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:514
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:604
 msgid "注视点X(-1~1)"
 msgstr "注視点X（-1～1）"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:524
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:614
 msgid "注视点Y(-1~1)"
 msgstr "注視点Y（-1～1）"
 
@@ -1664,19 +1688,19 @@ msgstr "現在開いているファイルはありません"
 msgid "相对"
 msgstr "相対"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:464
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:554
 msgid "眨眼间隔(毫秒)"
 msgstr "瞬き間隔（ミリ秒）"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:474
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:564
 msgid "眨眼间隔随机变化(毫秒)"
 msgstr "瞬き間隔のランダム変化（ミリ秒）"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:429
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:519
 msgid "睁开眼睛"
 msgstr "開いた目"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:484
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:574
 msgid "睁眼(毫秒)"
 msgstr "目を開ける（ミリ秒）"
 
@@ -1721,7 +1745,7 @@ msgstr "動画のスキップを無効にする"
 msgid "禁用"
 msgstr "無効化"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:534
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:624
 msgid "立即注视"
 msgstr "即座に注視"
 
@@ -1729,7 +1753,7 @@ msgstr "即座に注視"
 msgid "立绘"
 msgstr "Figure"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:350
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:430
 #: src/pages/editor/GraphicalEditor/SentenceEditor/Say.tsx:274
 #: src/pages/editor/GraphicalEditor/SentenceEditor/SetAnimation.tsx:82
 #: src/pages/editor/GraphicalEditor/SentenceEditor/SetTransform.tsx:113
@@ -1737,11 +1761,11 @@ msgstr "Figure"
 msgid "立绘 ID"
 msgstr "立ち絵ID"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:342
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:422
 msgid "立绘ID（可选）"
 msgstr "立ち絵ID(オプション)"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:332
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:412
 msgid "立绘位置"
 msgstr "描画位置"
 
@@ -1749,7 +1773,7 @@ msgstr "描画位置"
 msgid "立绘插图的ID"
 msgstr "関連する立ち絵のID"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:276
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:342
 msgid "立绘文件"
 msgstr "立ち絵ファイル"
 
@@ -1837,7 +1861,8 @@ msgid "缓出"
 msgstr "イーズアウト"
 
 #: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeBg.tsx:121
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:375
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:434
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:465
 #: src/pages/editor/GraphicalEditor/SentenceEditor/SetTransform.tsx:117
 msgid "缓动类型"
 msgstr "イージングタイプ"
@@ -1937,7 +1962,7 @@ msgstr "ツールバーを自動的に隠す"
 msgid "自定义"
 msgstr "カスタム"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:454
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:544
 msgid "自定义 Live2D 绘制范围"
 msgstr "Live2D 描画範囲のカスタマイズ"
 
@@ -2171,8 +2196,8 @@ msgstr "ターゲットIDを入力"
 
 #: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeBg.tsx:105
 #: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeBg.tsx:108
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:364
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:366
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:454
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:456
 #: src/pages/editor/GraphicalEditor/SentenceEditor/SetTransform.tsx:71
 #: src/pages/editor/GraphicalEditor/SentenceEditor/SetTransform.tsx:74
 msgid "过渡时间（单位为毫秒）"
@@ -2199,7 +2224,7 @@ msgid "进出场动画"
 msgstr "入退場アニメーション"
 
 #: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeBg.tsx:76
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:286
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:353
 #: src/pages/editor/GraphicalEditor/SentenceEditor/SetAnimation.tsx:98
 #: src/pages/editor/GraphicalEditor/SentenceEditor/SetTransform.tsx:139
 msgid "连续执行"
@@ -2222,7 +2247,7 @@ msgstr "アニメーションファイルを選択"
 msgid "选择图片"
 msgstr "画像を選択"
 
-#: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:369
+#: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:386
 msgid "选择图片文件"
 msgstr "画像ファイルを選択"
 
@@ -2261,13 +2286,13 @@ msgstr "ゲームエンジンのバージョンを選択"
 msgid "选择视频文件"
 msgstr "動画ファイルを選択"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:269
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:279
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:402
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:412
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:422
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:432
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:442
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:335
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:345
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:492
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:502
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:512
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:522
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:532
 msgid "选择立绘文件"
 msgstr "立ち絵ファイルを選択"
 
@@ -2395,15 +2420,15 @@ msgstr "CG/BGMファイルを選択"
 msgid "鉴赏音乐"
 msgstr "BGM鑑賞"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:419
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:509
 msgid "闭上嘴"
 msgstr "閉じた口"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:439
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:529
 msgid "闭上眼睛"
 msgstr "閉じた目"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:494
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:584
 msgid "闭眼(毫秒)"
 msgstr "目を閉じる（ミリ秒）"
 
@@ -2497,13 +2522,14 @@ msgstr "ぼかし"
 
 #: src/hooks/useEaseTypeOptions.ts:6
 #: src/pages/editor/GraphicalEditor/components/EffectEditor.tsx:332
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:146
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:159
 #: src/pages/editor/GraphicalEditor/SentenceEditor/Say.tsx:58
+#: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:250
 msgid "默认"
 msgstr "デフォルト"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:516
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:526
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:606
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:616
 #: src/pages/editor/GraphicalEditor/utils/useEffectEditorConfig.ts:69
 #: src/pages/editor/GraphicalEditor/utils/useEffectEditorConfig.ts:70
 #: src/pages/editor/GraphicalEditor/utils/useEffectEditorConfig.ts:71
@@ -2529,23 +2555,23 @@ msgstr "デフォルト値は0"
 msgid "默认值1"
 msgstr "デフォルト値は1"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:496
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:586
 msgid "默认值100"
 msgstr "デフォルト値は100"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:476
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:566
 msgid "默认值1000"
 msgstr "デフォルト値は1000"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:486
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:576
 msgid "默认值150"
 msgstr "デフォルト値は150"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:466
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:556
 msgid "默认值24小时"
 msgstr "デフォルト値は24時間"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:506
+#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:596
 msgid "默认值50"
 msgstr "デフォルト値は50"
 
