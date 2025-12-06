@@ -196,7 +196,7 @@ export default function ChangeFigure(props: ISentenceEditorProps) {
     return { motions: [], expressions: [] };
   }
 
-  // 载入 motions / expressions（支持 .jsonl / .json / spine）
+  // 载入 motions / expressions（支持 .jsonl / .json / spine / .wmdl）
   useEffect(() => {
     // reset
     setIsJsonlFormat(false);
@@ -266,6 +266,33 @@ export default function ChangeFigure(props: ISentenceEditorProps) {
         }
       });
     }
+
+    // WMDL (L2DW 新版模型配置文件)
+    if (pathLower.endsWith(".wmdl")) {
+      const url = `/games/${gameDir}/game/figure/${pathRaw}`;
+      axios.get(url).then((resp) => {
+        const wmdlData = resp.data;
+
+        if (wmdlData?.modelRelativePath) {
+          const mainModelPath = String(wmdlData.modelRelativePath);
+          const dir = url.substring(0, url.lastIndexOf("/"));
+          const mainModelUrl = `${dir}/${mainModelPath}`;
+
+          // 进一步获取主模型文件，解析 motions 和 expressions
+          axios.get(mainModelUrl).then((modelResp) => {
+            const modelData = modelResp.data;
+            if (modelData?.motions) {
+              const motions = Object.keys(modelData.motions);
+              setL2dMotionsList(motions.sort((a, b) => a.localeCompare(b)));
+            }
+            if (modelData?.expressions) {
+              const exps: string[] = (modelData.expressions as Array<{ name: string }>)?.map((e) => e.name);
+              setL2dExpressionsList((exps || []).sort((a, b) => a.localeCompare(b)));
+            }
+          });
+        }
+      });
+    }
   }, [figureFile.value, gameDir]);
 
   useEffect(() => {
@@ -287,6 +314,12 @@ export default function ChangeFigure(props: ISentenceEditorProps) {
       setIsAccordionOpen(false);
     }
   }, [animationFlag.value]);
+
+  // 是否为 Live2D 变体（json/jsonl/wmdl）
+  const isLive2DVariant = useMemo(() => {
+    const url = figureFile.value.toLowerCase();
+    return url.endsWith('.json') || url.endsWith('.jsonl') || url.endsWith('.wmdl');
+  }, [figureFile.value]);
 
   const submit = () => {
     const submitString = combineSubmitString(
@@ -383,7 +416,7 @@ export default function ChangeFigure(props: ISentenceEditorProps) {
         </CommonOptions>
       )}
 
-      {figureFile.value.includes('.json') && (
+      {(isLive2DVariant || isSpineJsonFormat) && (
         <>
           <CommonOptions key="24" title={isSpineJsonFormat ? t`Spine 动画` : t`Live2D 动作`}>
             <SearchableCascader
@@ -473,7 +506,7 @@ export default function ChangeFigure(props: ISentenceEditorProps) {
                 }}
               />
             </CommonOptions>
-            {!figureFile.value.includes('.json') ? (
+            {!isLive2DVariant ? (
               <>
                 <CommonOptions title={t`唇形同步与眨眼`} key="5">
                   <WheelDropdown
