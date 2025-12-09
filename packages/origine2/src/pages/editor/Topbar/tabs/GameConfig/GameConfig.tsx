@@ -261,6 +261,21 @@ export default function GameConfig() {
           <div className={styles.tips}>{t`刷新游戏后生效`}</div>
         </div>
       </TabItem>
+      <TabItem title={t`舞台分辨率`}>
+        <div style={{display: 'flex', flexDirection: `column`}}>
+          <div style={{display: 'flex', flexDirection: `row`, alignItems: 'center', gap: '8px'}}>
+            <GameConfigEditor key="stageWidth" value={getConfigContentAsString('Stage_Width')}
+              onChange={(e: string) => updateGameConfigSimpleByKey("Stage_Width", e)}/>
+            <GameConfigEditor key="stageHeight" value={getConfigContentAsString('Stage_Height')}
+              onChange={(e: string) => updateGameConfigSimpleByKey("Stage_Height", e)}/>
+            <Button onClick={()=>{
+              updateGameConfigSimpleByKey("Stage_Width", "2560");
+              updateGameConfigSimpleByKey("Stage_Height", "1440");
+            }}>{t`重置`}</Button>
+          </div>
+          <div className={styles.tips}>{t`刷新游戏后生效`}</div>
+        </div>
+      </TabItem>
     </>
   );
 }
