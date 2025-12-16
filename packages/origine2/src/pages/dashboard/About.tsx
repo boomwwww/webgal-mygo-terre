@@ -9,6 +9,7 @@ import { dateTimeOptions } from './DashBoard';
 import useSWR from 'swr';
 import { api } from '@/api';
 import useOsInfo from '@/hooks/useOsInfo';
+import { config } from '@/config/mygo';
 
 const InfoIcon = bundleIcon(InfoFilled, InfoRegular);
 
@@ -33,14 +34,14 @@ const About: React.FunctionComponent = () => {
       <PopoverSurface>
         <div>
           <Text as='h1' block size={500}>
-            WebGAL Terre
+            WebGAL Terre MyGO
           </Text>
           <Text as='b' block>
             <p>{t`视觉小说编辑，再进化`}</p>
             <small>
-              {t`当前版本`}: {`${__INFO.version} (${__INFO.buildTime.toLocaleString('zh-CN', dateTimeOptions).replaceAll('/', '-')})`}
+              {t`当前版本`}: {`MyGO_v${config.version} (${__INFO.buildTime.toLocaleString('zh-CN', dateTimeOptions).replaceAll('/', '-')})`}
               <br />
-              {
+              {/* {
                 latestRelease &&
                 <>
                   <span>
@@ -48,18 +49,19 @@ const About: React.FunctionComponent = () => {
                   </span>
                   <br />
                 </>
-              }
-
+              } */}
+              <span>{`WebGAL version: ${__INFO.version}`}</span>
+              <br />
               <span>{t`运行平台`}: {osInfo?.platform} {osInfo?.arch}</span>
               <br />
-              <p>
+              {/* <p>
                 {
                   latestRelease?.hasNewVersion &&
                   <Button appearance="primary" size="small" as="a" href="https://openwebgal.com/download/" target="_blank">
                     {t`获取最新版本`}
                   </Button>
                 }
-              </p>
+              </p> */}
               <hr />
               <div >
                 Powered by <Link href="https://github.com/OpenWebGAL" target="_blank" >WebGAL</Link> Framework
