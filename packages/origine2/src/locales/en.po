@@ -2147,6 +2147,10 @@ msgstr "Custom effect name"
 msgid "自定义级联选择器分隔符"
 msgstr "Custom cascade selector separator"
 
+#: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:264
+msgid "舞台分辨率"
+msgstr "Stage resolution"
+
 #: src/pages/editor/Topbar/tabs/AddSentence/AddSentenceTab.tsx:44
 msgid "舞台对象控制"
 msgstr "Stage object control"
@@ -2612,6 +2616,10 @@ msgstr "Rename template directory"
 #: src/pages/dashboard/GameElement.tsx:113
 msgid "重命名游戏目录"
 msgstr "Rename game directory"
+
+#: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:274
+msgid "重置"
+msgstr "Reset"
 
 #: src/pages/editor/Topbar/tabs/AddSentence/AddSentenceTab.tsx:62
 msgid "鉴赏"

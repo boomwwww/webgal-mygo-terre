@@ -2146,6 +2146,10 @@ msgstr "カスタムの特殊効果名"
 msgid "自定义级联选择器分隔符"
 msgstr "カスタムカスケードセレクター区切り文字"
 
+#: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:264
+msgid "舞台分辨率"
+msgstr "ステージ解像度"
+
 #: src/pages/editor/Topbar/tabs/AddSentence/AddSentenceTab.tsx:44
 msgid "舞台对象控制"
 msgstr "ステージオブジェクトコントロール"
@@ -2611,6 +2615,10 @@ msgstr "テンプレート名変更"
 #: src/pages/dashboard/GameElement.tsx:113
 msgid "重命名游戏目录"
 msgstr "ゲームディレクトリ名変更"
+
+#: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:274
+msgid "重置"
+msgstr "リセット"
 
 #: src/pages/editor/Topbar/tabs/AddSentence/AddSentenceTab.tsx:62
 msgid "鉴赏"
