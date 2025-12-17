@@ -478,8 +478,8 @@ msgstr "全屏文字"
 msgid "全屏显示一段文字，用于独白或引出场景"
 msgstr "全屏显示一段文字，用于独白或引出场景"
 
-#: src/pages/dashboard/About.tsx:29
 #: src/pages/dashboard/About.tsx:30
+#: src/pages/dashboard/About.tsx:31
 msgid "关于"
 msgstr "关于"
 
@@ -546,7 +546,7 @@ msgstr "最小宽度"
 msgid "最小高度"
 msgstr "最小高度"
 
-#: src/pages/dashboard/About.tsx:47
+#: src/pages/dashboard/About.tsx:48
 #: src/pages/dashboard/DashBoard.tsx:159
 msgid "最新版本"
 msgstr "最新版本"
@@ -646,7 +646,6 @@ msgid "刷新游戏"
 msgstr "刷新游戏"
 
 #: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:261
-#: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:276
 msgid "刷新游戏后生效"
 msgstr "刷新游戏后生效"
 
@@ -1118,7 +1117,7 @@ msgstr "张开嘴"
 msgid "强度"
 msgstr "强度"
 
-#: src/pages/dashboard/About.tsx:41
+#: src/pages/dashboard/About.tsx:42
 #: src/pages/dashboard/DashBoard.tsx:158
 msgid "当前版本"
 msgstr "当前版本"
@@ -1387,7 +1386,7 @@ msgstr "文本长度 (em)"
 msgid "文本阴影"
 msgstr "文本阴影"
 
-#: src/pages/dashboard/About.tsx:77
+#: src/pages/dashboard/About.tsx:78
 msgid "文档"
 msgstr "文档"
 
@@ -1864,7 +1863,7 @@ msgstr "确认按钮文本"
 msgid "视图"
 msgstr "视图"
 
-#: src/pages/dashboard/About.tsx:39
+#: src/pages/dashboard/About.tsx:40
 msgid "视觉小说编辑，再进化"
 msgstr "视觉小说编辑，再进化"
 
@@ -2155,7 +2154,7 @@ msgstr "舞台画面"
 msgid "英语"
 msgstr "英语"
 
-#: src/pages/dashboard/About.tsx:59
+#: src/pages/dashboard/About.tsx:60
 #: src/pages/dashboard/DashBoard.tsx:164
 msgid "获取最新版本"
 msgstr "获取最新版本"
@@ -2404,7 +2403,7 @@ msgstr "过渡时间（单位为毫秒）"
 msgid "过滤文件"
 msgstr "过滤文件"
 
-#: src/pages/dashboard/About.tsx:53
+#: src/pages/dashboard/About.tsx:54
 msgid "运行平台"
 msgstr "运行平台"
 
@@ -2444,7 +2443,7 @@ msgstr "选择动画文件"
 msgid "选择图片"
 msgstr "选择图片"
 
-#: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:404
+#: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:389
 msgid "选择图片文件"
 msgstr "选择图片文件"
 
@@ -2689,7 +2688,7 @@ msgstr "靠左"
 msgid "音乐"
 msgstr "音乐"
 
-#: src/pages/dashboard/About.tsx:74
+#: src/pages/dashboard/About.tsx:75
 msgid "项目主页"
 msgstr "项目主页"
 

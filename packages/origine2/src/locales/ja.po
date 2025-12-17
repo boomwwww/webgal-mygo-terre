@@ -483,8 +483,8 @@ msgstr "全画面テキスト"
 msgid "全屏显示一段文字，用于独白或引出场景"
 msgstr "全画面画面でテキストを表示する。独白やシーンの導入に使用"
 
-#: src/pages/dashboard/About.tsx:29
 #: src/pages/dashboard/About.tsx:30
+#: src/pages/dashboard/About.tsx:31
 msgid "关于"
 msgstr "About"
 
@@ -551,7 +551,7 @@ msgstr "最小幅"
 msgid "最小高度"
 msgstr "最小高さ"
 
-#: src/pages/dashboard/About.tsx:47
+#: src/pages/dashboard/About.tsx:48
 #: src/pages/dashboard/DashBoard.tsx:159
 msgid "最新版本"
 msgstr "最新バージョン"
@@ -651,7 +651,6 @@ msgid "刷新游戏"
 msgstr "ゲームをリフレッシュ"
 
 #: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:261
-#: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:276
 msgid "刷新游戏后生效"
 msgstr "ゲームをリフレッシュした後に有効"
 
@@ -1127,7 +1126,7 @@ msgstr "開いた口"
 msgid "强度"
 msgstr "強度"
 
-#: src/pages/dashboard/About.tsx:41
+#: src/pages/dashboard/About.tsx:42
 #: src/pages/dashboard/DashBoard.tsx:158
 msgid "当前版本"
 msgstr "現在のバージョン"
@@ -1396,7 +1395,7 @@ msgstr "テキストの長さ (em)"
 msgid "文本阴影"
 msgstr "テキストシャドウ"
 
-#: src/pages/dashboard/About.tsx:77
+#: src/pages/dashboard/About.tsx:78
 msgid "文档"
 msgstr "ドキュメント"
 
@@ -1873,7 +1872,7 @@ msgstr "確認ボタンのテキスト"
 msgid "视图"
 msgstr "ビュー"
 
-#: src/pages/dashboard/About.tsx:39
+#: src/pages/dashboard/About.tsx:40
 msgid "视觉小说编辑，再进化"
 msgstr "Galgame Editing. Redefined"
 
@@ -2164,7 +2163,7 @@ msgstr "ステージ画面"
 msgid "英语"
 msgstr "英語"
 
-#: src/pages/dashboard/About.tsx:59
+#: src/pages/dashboard/About.tsx:60
 #: src/pages/dashboard/DashBoard.tsx:164
 msgid "获取最新版本"
 msgstr "最新バージョンをダウンロード"
@@ -2413,7 +2412,7 @@ msgstr "トランジション時間（ミリ秒）"
 msgid "过滤文件"
 msgstr "ファイルのフィルタリング"
 
-#: src/pages/dashboard/About.tsx:53
+#: src/pages/dashboard/About.tsx:54
 msgid "运行平台"
 msgstr "プラットフォーム"
 
@@ -2453,7 +2452,7 @@ msgstr "アニメーションファイルを選択"
 msgid "选择图片"
 msgstr "画像を選択"
 
-#: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:404
+#: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:389
 msgid "选择图片文件"
 msgstr "画像ファイルを選択"
 
@@ -2698,7 +2697,7 @@ msgstr "左寄せ"
 msgid "音乐"
 msgstr "BGM"
 
-#: src/pages/dashboard/About.tsx:74
+#: src/pages/dashboard/About.tsx:75
 msgid "项目主页"
 msgstr "プロジェクトホームページ"
 

@@ -480,8 +480,8 @@ msgstr "Full-screen text"
 msgid "全屏显示一段文字，用于独白或引出场景"
 msgstr "Show some texts on Full-screen"
 
-#: src/pages/dashboard/About.tsx:29
 #: src/pages/dashboard/About.tsx:30
+#: src/pages/dashboard/About.tsx:31
 msgid "关于"
 msgstr "About"
 
@@ -548,7 +548,7 @@ msgstr "Min Width"
 msgid "最小高度"
 msgstr "Min Height"
 
-#: src/pages/dashboard/About.tsx:47
+#: src/pages/dashboard/About.tsx:48
 #: src/pages/dashboard/DashBoard.tsx:159
 msgid "最新版本"
 msgstr "Latest Version"
@@ -648,7 +648,6 @@ msgid "刷新游戏"
 msgstr "Refresh game"
 
 #: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:261
-#: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:276
 msgid "刷新游戏后生效"
 msgstr "Effective after refreshing the game"
 
@@ -1124,7 +1123,7 @@ msgstr "Open mouth"
 msgid "强度"
 msgstr "Intensity"
 
-#: src/pages/dashboard/About.tsx:41
+#: src/pages/dashboard/About.tsx:42
 #: src/pages/dashboard/DashBoard.tsx:158
 msgid "当前版本"
 msgstr "Current version"
@@ -1397,7 +1396,7 @@ msgstr "Text length (em)"
 msgid "文本阴影"
 msgstr "Text Shadow"
 
-#: src/pages/dashboard/About.tsx:77
+#: src/pages/dashboard/About.tsx:78
 msgid "文档"
 msgstr "Document"
 
@@ -1874,7 +1873,7 @@ msgstr "Confirm button text"
 msgid "视图"
 msgstr "View"
 
-#: src/pages/dashboard/About.tsx:39
+#: src/pages/dashboard/About.tsx:40
 msgid "视觉小说编辑，再进化"
 msgstr "Visual novel editing, evolved"
 
@@ -2165,7 +2164,7 @@ msgstr "Stage"
 msgid "英语"
 msgstr "English"
 
-#: src/pages/dashboard/About.tsx:59
+#: src/pages/dashboard/About.tsx:60
 #: src/pages/dashboard/DashBoard.tsx:164
 msgid "获取最新版本"
 msgstr "Download Latest Version"
@@ -2414,7 +2413,7 @@ msgstr "Transition duration (milliseconds)"
 msgid "过滤文件"
 msgstr "Filter files"
 
-#: src/pages/dashboard/About.tsx:53
+#: src/pages/dashboard/About.tsx:54
 msgid "运行平台"
 msgstr "Platform"
 
@@ -2454,7 +2453,7 @@ msgstr "Choose animation file"
 msgid "选择图片"
 msgstr "Choose image"
 
-#: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:404
+#: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:389
 msgid "选择图片文件"
 msgstr "Choose image file"
 
@@ -2699,7 +2698,7 @@ msgstr "Left"
 msgid "音乐"
 msgstr "Music"
 
-#: src/pages/dashboard/About.tsx:74
+#: src/pages/dashboard/About.tsx:75
 msgid "项目主页"
 msgstr "Project Homepage"
 
