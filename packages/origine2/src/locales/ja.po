@@ -186,13 +186,13 @@ msgstr "unlockBgm:;"
 msgid "unlockCg:;"
 msgstr "unlockCg:;"
 
-#: src/pages/dashboard/Sidebar.tsx:62
-#: src/pages/dashboard/Sidebar.tsx:67
+#: src/pages/dashboard/Sidebar.tsx:70
+#: src/pages/dashboard/Sidebar.tsx:75
 msgid "WebGAL Classic"
 msgstr "WebGAL Classic"
 
-#: src/pages/dashboard/Sidebar.tsx:52
-#: src/pages/dashboard/Sidebar.tsx:56
+#: src/pages/dashboard/Sidebar.tsx:60
+#: src/pages/dashboard/Sidebar.tsx:64
 msgid "WebGAL Standard"
 msgstr "WebGAL Standard"
 
@@ -593,7 +593,7 @@ msgstr "リストビュー"
 
 #: src/components/Assets/Assets.tsx:383
 #: src/components/Assets/Assets.tsx:435
-#: src/pages/dashboard/Sidebar.tsx:134
+#: src/pages/dashboard/Sidebar.tsx:142
 #: src/pages/dashboard/TemplateSidebar.tsx:78
 msgid "创建"
 msgstr "作成"
@@ -602,7 +602,7 @@ msgstr "作成"
 msgid "创建新模板"
 msgstr "新しいテンプレートを作成"
 
-#: src/pages/dashboard/Sidebar.tsx:101
+#: src/pages/dashboard/Sidebar.tsx:109
 msgid "创建新游戏"
 msgstr "新しいゲームを作成"
 
@@ -1418,7 +1418,7 @@ msgstr "新しいフォルダーを作成"
 msgid "新建模板"
 msgstr "新しいテンプレートを作成"
 
-#: src/pages/dashboard/Sidebar.tsx:97
+#: src/pages/dashboard/Sidebar.tsx:105
 msgid "新建游戏"
 msgstr "新しいゲームを作成"
 
@@ -1445,8 +1445,8 @@ msgstr "新しいテンプレート"
 
 #: src/pages/dashboard/Sidebar.tsx:35
 #: src/pages/dashboard/Sidebar.tsx:36
-#: src/pages/dashboard/Sidebar.tsx:82
-#: src/pages/dashboard/Sidebar.tsx:110
+#: src/pages/dashboard/Sidebar.tsx:90
+#: src/pages/dashboard/Sidebar.tsx:118
 msgid "新的游戏"
 msgstr "新しいゲーム"
 
@@ -1764,7 +1764,7 @@ msgstr "特殊効果をクリア"
 msgid "游戏"
 msgstr "ゲーム"
 
-#: src/pages/dashboard/Sidebar.tsx:88
+#: src/pages/dashboard/Sidebar.tsx:96
 msgid "游戏列表"
 msgstr "ゲームリスト"
 
@@ -1772,8 +1772,8 @@ msgstr "ゲームリスト"
 msgid "游戏包名"
 msgstr "パッケージ名"
 
-#: src/pages/dashboard/Sidebar.tsx:102
-#: src/pages/dashboard/Sidebar.tsx:111
+#: src/pages/dashboard/Sidebar.tsx:110
+#: src/pages/dashboard/Sidebar.tsx:119
 #: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:122
 msgid "游戏名称"
 msgstr "ゲーム名"
@@ -1786,8 +1786,8 @@ msgstr "ゲームアイコン"
 msgid "游戏控制"
 msgstr "ゲームコントロール"
 
-#: src/pages/dashboard/Sidebar.tsx:113
-#: src/pages/dashboard/Sidebar.tsx:119
+#: src/pages/dashboard/Sidebar.tsx:121
+#: src/pages/dashboard/Sidebar.tsx:127
 msgid "游戏目录"
 msgstr "ゲームディレクトリ"
 
@@ -2469,7 +2469,7 @@ msgstr "アバターを選択"
 msgid "选择小头像文件"
 msgstr "アバター画像ファイルを選択"
 
-#: src/pages/dashboard/Sidebar.tsx:123
+#: src/pages/dashboard/Sidebar.tsx:131
 msgid "选择应用的模板"
 msgstr "適用テンプレートを選択"
 
@@ -2482,7 +2482,7 @@ msgstr "効果音ファイルを選択"
 msgid "选择文件"
 msgstr "ファイルを選択"
 
-#: src/pages/dashboard/Sidebar.tsx:121
+#: src/pages/dashboard/Sidebar.tsx:129
 msgid "选择游戏引擎版本"
 msgstr "ゲームエンジンのバージョンを選択"
 

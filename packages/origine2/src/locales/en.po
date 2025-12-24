@@ -186,13 +186,13 @@ msgstr "unlockBgm:;"
 msgid "unlockCg:;"
 msgstr "unlockCg:;"
 
-#: src/pages/dashboard/Sidebar.tsx:62
-#: src/pages/dashboard/Sidebar.tsx:67
+#: src/pages/dashboard/Sidebar.tsx:70
+#: src/pages/dashboard/Sidebar.tsx:75
 msgid "WebGAL Classic"
 msgstr "WebGAL Classic"
 
-#: src/pages/dashboard/Sidebar.tsx:52
-#: src/pages/dashboard/Sidebar.tsx:56
+#: src/pages/dashboard/Sidebar.tsx:60
+#: src/pages/dashboard/Sidebar.tsx:64
 msgid "WebGAL Standard"
 msgstr "WebGAL Standard"
 
@@ -590,7 +590,7 @@ msgstr "List view"
 
 #: src/components/Assets/Assets.tsx:383
 #: src/components/Assets/Assets.tsx:435
-#: src/pages/dashboard/Sidebar.tsx:134
+#: src/pages/dashboard/Sidebar.tsx:142
 #: src/pages/dashboard/TemplateSidebar.tsx:78
 msgid "创建"
 msgstr "Create"
@@ -599,7 +599,7 @@ msgstr "Create"
 msgid "创建新模板"
 msgstr "Create new template"
 
-#: src/pages/dashboard/Sidebar.tsx:101
+#: src/pages/dashboard/Sidebar.tsx:109
 msgid "创建新游戏"
 msgstr "Create new game"
 
@@ -1419,7 +1419,7 @@ msgstr "Create new folder"
 msgid "新建模板"
 msgstr "Create new template"
 
-#: src/pages/dashboard/Sidebar.tsx:97
+#: src/pages/dashboard/Sidebar.tsx:105
 msgid "新建游戏"
 msgstr "Create new game"
 
@@ -1446,8 +1446,8 @@ msgstr "New template"
 
 #: src/pages/dashboard/Sidebar.tsx:35
 #: src/pages/dashboard/Sidebar.tsx:36
-#: src/pages/dashboard/Sidebar.tsx:82
-#: src/pages/dashboard/Sidebar.tsx:110
+#: src/pages/dashboard/Sidebar.tsx:90
+#: src/pages/dashboard/Sidebar.tsx:118
 msgid "新的游戏"
 msgstr "New game"
 
@@ -1765,7 +1765,7 @@ msgstr "Clear effects"
 msgid "游戏"
 msgstr "Games"
 
-#: src/pages/dashboard/Sidebar.tsx:88
+#: src/pages/dashboard/Sidebar.tsx:96
 msgid "游戏列表"
 msgstr "Game list"
 
@@ -1773,8 +1773,8 @@ msgstr "Game list"
 msgid "游戏包名"
 msgstr "Game package name"
 
-#: src/pages/dashboard/Sidebar.tsx:102
-#: src/pages/dashboard/Sidebar.tsx:111
+#: src/pages/dashboard/Sidebar.tsx:110
+#: src/pages/dashboard/Sidebar.tsx:119
 #: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:122
 msgid "游戏名称"
 msgstr "Game name"
@@ -1787,8 +1787,8 @@ msgstr "Game icon"
 msgid "游戏控制"
 msgstr "Game control"
 
-#: src/pages/dashboard/Sidebar.tsx:113
-#: src/pages/dashboard/Sidebar.tsx:119
+#: src/pages/dashboard/Sidebar.tsx:121
+#: src/pages/dashboard/Sidebar.tsx:127
 msgid "游戏目录"
 msgstr "Game directory"
 
@@ -2470,7 +2470,7 @@ msgstr "Choose avatar"
 msgid "选择小头像文件"
 msgstr "Choose avatar file"
 
-#: src/pages/dashboard/Sidebar.tsx:123
+#: src/pages/dashboard/Sidebar.tsx:131
 msgid "选择应用的模板"
 msgstr "Select apply template"
 
@@ -2483,7 +2483,7 @@ msgstr "Choose sound effect file"
 msgid "选择文件"
 msgstr "Choose file"
 
-#: src/pages/dashboard/Sidebar.tsx:121
+#: src/pages/dashboard/Sidebar.tsx:129
 msgid "选择游戏引擎版本"
 msgstr "Select game engine version"
 
