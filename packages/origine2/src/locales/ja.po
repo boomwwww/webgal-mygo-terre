@@ -650,6 +650,7 @@ msgid "刷新游戏"
 msgstr "ゲームをリフレッシュ"
 
 #: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:261
+#: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:276
 msgid "刷新游戏后生效"
 msgstr "ゲームをリフレッシュした後に有効"
 
@@ -2450,7 +2451,7 @@ msgstr "アニメーションファイルを選択"
 msgid "选择图片"
 msgstr "画像を選択"
 
-#: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:389
+#: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:404
 msgid "选择图片文件"
 msgstr "画像ファイルを選択"
 

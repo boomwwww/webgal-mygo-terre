@@ -647,6 +647,7 @@ msgid "刷新游戏"
 msgstr "Refresh game"
 
 #: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:261
+#: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:276
 msgid "刷新游戏后生效"
 msgstr "Effective after refreshing the game"
 
@@ -2451,7 +2452,7 @@ msgstr "Choose animation file"
 msgid "选择图片"
 msgstr "Choose image"
 
-#: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:389
+#: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:404
 msgid "选择图片文件"
 msgstr "Choose image file"
 

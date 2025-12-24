@@ -645,6 +645,7 @@ msgid "刷新游戏"
 msgstr "刷新游戏"
 
 #: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:261
+#: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:276
 msgid "刷新游戏后生效"
 msgstr "刷新游戏后生效"
 
@@ -2441,7 +2442,7 @@ msgstr "选择动画文件"
 msgid "选择图片"
 msgstr "选择图片"
 
-#: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:389
+#: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:404
 msgid "选择图片文件"
 msgstr "选择图片文件"
 
