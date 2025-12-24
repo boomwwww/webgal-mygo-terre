@@ -1,6 +1,6 @@
 import GameElement from "./GameElement";
 import styles from "./sidebar.module.scss";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {
   Button, Dropdown,
   Input,
@@ -41,6 +41,14 @@ export default function Sidebar(props: ISidebarProps) {
   const derivativeEnginesResp = useSWR('derivativeEngines', async () => {
     const resp = await api.manageGameControllerGetDerivativeEngines();
     return resp.data as unknown as string[];
+  });
+
+  useEffect(() => {
+    const mygoEngines = derivativeEnginesResp.data?.filter((e) => e.toLocaleLowerCase().includes('mygo')) || [];
+    if (mygoEngines[0]) {
+      const theMygoEngine = getMaxVersionFromString(mygoEngines);;
+      setDerivative(theMygoEngine);
+    }
   });
 
   const templatesResp = useSWR('template-list-selector', async () => {
@@ -155,3 +163,39 @@ export default function Sidebar(props: ISidebarProps) {
     </div>
   </div>;
 }
+
+// 提取版本号
+const getVersion = (version: string) => {
+  const regex = /(\d+)\.(\d+)\.(\d+)/;
+  const match = version.match(regex);
+  if (match) {
+    return {
+      major: parseInt(match[1], 10),
+      minor: parseInt(match[2], 10),
+      patch: parseInt(match[3], 10),
+    };
+  }
+  return null;
+};
+
+// 找到最大版本
+const getMaxVersion = (versions:{major: number, minor: number, patch: number}[]) => {
+  return versions.reduce((max, version) => {
+    if (version.major > max.major) {
+      return version;
+    } else if (version.major === max.major && version.minor > max.minor) {
+      return version;
+    } else if (version.major === max.major && version.minor === max.minor && version.patch > max.patch) {
+      return version;
+    }
+    return max;
+  }, {major: 0, minor: 0, patch: 0});
+};
+
+// 由字符串获取最大版本号
+export const getMaxVersionFromString = (versions: string[]) => {
+  const versionArray = versions.map(version => getVersion(version)).filter(v => v !== null);
+  const maxVersion = getMaxVersion(versionArray);
+  const maxVersionString = `${maxVersion.major}.${maxVersion.minor}.${maxVersion.patch}`;
+  return versions.find(v => v.includes(maxVersionString)) || versions[0];
+};
