@@ -548,7 +548,6 @@ msgstr "Min Width"
 msgid "最小高度"
 msgstr "Min Height"
 
-#: src/pages/dashboard/About.tsx:48
 #: src/pages/dashboard/DashBoard.tsx:159
 msgid "最新版本"
 msgstr "Latest Version"
@@ -1396,7 +1395,7 @@ msgstr "Text length (em)"
 msgid "文本阴影"
 msgstr "Text Shadow"
 
-#: src/pages/dashboard/About.tsx:78
+#: src/pages/dashboard/About.tsx:79
 msgid "文档"
 msgstr "Document"
 
@@ -2160,7 +2159,6 @@ msgstr "Stage"
 msgid "英语"
 msgstr "English"
 
-#: src/pages/dashboard/About.tsx:60
 #: src/pages/dashboard/DashBoard.tsx:164
 msgid "获取最新版本"
 msgstr "Download Latest Version"
@@ -2409,7 +2407,7 @@ msgstr "Transition duration (milliseconds)"
 msgid "过滤文件"
 msgstr "Filter files"
 
-#: src/pages/dashboard/About.tsx:54
+#: src/pages/dashboard/About.tsx:55
 msgid "运行平台"
 msgstr "Platform"
 
@@ -2690,7 +2688,7 @@ msgstr "Left"
 msgid "音乐"
 msgstr "Music"
 
-#: src/pages/dashboard/About.tsx:75
+#: src/pages/dashboard/About.tsx:76
 msgid "项目主页"
 msgstr "Project Homepage"
 

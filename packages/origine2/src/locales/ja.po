@@ -551,7 +551,6 @@ msgstr "最小幅"
 msgid "最小高度"
 msgstr "最小高さ"
 
-#: src/pages/dashboard/About.tsx:48
 #: src/pages/dashboard/DashBoard.tsx:159
 msgid "最新版本"
 msgstr "最新バージョン"
@@ -1395,7 +1394,7 @@ msgstr "テキストの長さ (em)"
 msgid "文本阴影"
 msgstr "テキストシャドウ"
 
-#: src/pages/dashboard/About.tsx:78
+#: src/pages/dashboard/About.tsx:79
 msgid "文档"
 msgstr "ドキュメント"
 
@@ -2159,7 +2158,6 @@ msgstr "ステージ画面"
 msgid "英语"
 msgstr "英語"
 
-#: src/pages/dashboard/About.tsx:60
 #: src/pages/dashboard/DashBoard.tsx:164
 msgid "获取最新版本"
 msgstr "最新バージョンをダウンロード"
@@ -2408,7 +2406,7 @@ msgstr "トランジション時間（ミリ秒）"
 msgid "过滤文件"
 msgstr "ファイルのフィルタリング"
 
-#: src/pages/dashboard/About.tsx:54
+#: src/pages/dashboard/About.tsx:55
 msgid "运行平台"
 msgstr "プラットフォーム"
 
@@ -2689,7 +2687,7 @@ msgstr "左寄せ"
 msgid "音乐"
 msgstr "BGM"
 
-#: src/pages/dashboard/About.tsx:75
+#: src/pages/dashboard/About.tsx:76
 msgid "项目主页"
 msgstr "プロジェクトホームページ"
 

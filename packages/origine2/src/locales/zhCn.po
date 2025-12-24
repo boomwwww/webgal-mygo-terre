@@ -546,7 +546,6 @@ msgstr "最小宽度"
 msgid "最小高度"
 msgstr "最小高度"
 
-#: src/pages/dashboard/About.tsx:48
 #: src/pages/dashboard/DashBoard.tsx:159
 msgid "最新版本"
 msgstr "最新版本"
@@ -1386,7 +1385,7 @@ msgstr "文本长度 (em)"
 msgid "文本阴影"
 msgstr "文本阴影"
 
-#: src/pages/dashboard/About.tsx:78
+#: src/pages/dashboard/About.tsx:79
 msgid "文档"
 msgstr "文档"
 
@@ -2150,7 +2149,6 @@ msgstr "舞台画面"
 msgid "英语"
 msgstr "英语"
 
-#: src/pages/dashboard/About.tsx:60
 #: src/pages/dashboard/DashBoard.tsx:164
 msgid "获取最新版本"
 msgstr "获取最新版本"
@@ -2399,7 +2397,7 @@ msgstr "过渡时间（单位为毫秒）"
 msgid "过滤文件"
 msgstr "过滤文件"
 
-#: src/pages/dashboard/About.tsx:54
+#: src/pages/dashboard/About.tsx:55
 msgid "运行平台"
 msgstr "运行平台"
 
@@ -2680,7 +2678,7 @@ msgstr "靠左"
 msgid "音乐"
 msgstr "音乐"
 
-#: src/pages/dashboard/About.tsx:75
+#: src/pages/dashboard/About.tsx:76
 msgid "项目主页"
 msgstr "项目主页"
 
