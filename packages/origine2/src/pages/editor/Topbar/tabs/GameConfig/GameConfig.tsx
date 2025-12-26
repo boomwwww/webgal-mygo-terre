@@ -8,7 +8,6 @@ import {WebgalConfig} from "webgal-parser/build/es/configParser/configParser";
 import {WebgalParser} from "@/pages/editor/GraphicalEditor/parser";
 import {logger} from "@/utils/logger";
 import {textboxThemes} from "./constants";
-import {eventBus} from "@/utils/eventBus";
 import {TabItem} from "@/pages/editor/Topbar/components/TabItem";
 import {Add, Plus, Write} from "@icon-park/react";
 import {Button, Dropdown, Input, Option} from "@fluentui/react-components";
@@ -136,6 +135,10 @@ export default function GameConfig() {
         <GameConfigEditor key="packageName" value={getConfigContentAsString('Package_name')}
           onChange={(e: string) => updateGameConfigSimpleByKey('Package_name', e)}/>
       </TabItem>
+      <TabItem title={t`Steam AppID`}>
+        <GameConfigEditor key="steamAppId" value={getConfigContentAsString('Steam_AppID')}
+          onChange={(e: string) => updateGameConfigSimpleByKey('Steam_AppID', e)}/>
+      </TabItem>
       {/* <TabItem title={t`文本框主题`}> */}
       {/*  <GameConfigEditorWithSelector key="packageName" value={getConfigContentAsString('Textbox_theme')} */}
       {/*    onChange={(e: string) => updateGameConfigSimpleByKey('Textbox_theme', e)} */}
@@ -241,6 +244,38 @@ export default function GameConfig() {
           ]}
           onChange={(e: string) => updateGameConfigSimpleByKey('Default_Language', e)}/>
       </TabItem>
+      <TabItem title={t`Live2D 定位类型`}>
+        <div style={{display: 'flex', flexDirection: `column`}}>
+          <GameConfigEditorWithSelector
+            key="live2d_position_type"
+            value={getConfigContentAsString('Positioning_Type') ? getConfigContentAsString('Positioning_Type') : ''}
+            selectItems={[
+              {key: '', text: t`默认`},
+              {key: 'M_2_3', text: `MyGO 2.3`},
+              {key: 'M_2_4', text: `MyGO 2.4`},
+              {key: 'M_3_0_0', text: `MyGO 3.0.0`},
+              {key: 'M_3_1_0', text: `MyGO 3.1.0`},
+            ]}
+            onChange={(e: string) => updateGameConfigSimpleByKey('Positioning_Type', e)}
+          />
+          <div className={styles.tips}>{t`刷新游戏后生效`}</div>
+        </div>
+      </TabItem>
+      <TabItem title={t`舞台分辨率`}>
+        <div style={{display: 'flex', flexDirection: `column`}}>
+          <div style={{display: 'flex', flexDirection: `row`, alignItems: 'center', gap: '8px'}}>
+            <GameConfigEditor key="stageWidth" value={getConfigContentAsString('Stage_Width')}
+              onChange={(e: string) => updateGameConfigSimpleByKey("Stage_Width", e)}/>
+            <GameConfigEditor key="stageHeight" value={getConfigContentAsString('Stage_Height')}
+              onChange={(e: string) => updateGameConfigSimpleByKey("Stage_Height", e)}/>
+            <Button onClick={()=>{
+              updateGameConfigSimpleByKey("Stage_Width", "2560");
+              updateGameConfigSimpleByKey("Stage_Height", "1440");
+            }}>{t`重置`}</Button>
+          </div>
+          <div className={styles.tips}>{t`刷新游戏后生效`}</div>
+        </div>
+      </TabItem>
     </>
   );
 }
@@ -264,7 +299,7 @@ function GameConfigEditor(props: IGameConfigEditor) {
     {!showEditBox.value && props.value}
     {!showEditBox.value &&
       <span className={styles.editButton} onClick={() => showEditBox.set(true)}>
-        <Write theme="outline" size="16" fill="#005CAF" strokeWidth={3}/>
+        <Write theme="outline" size="16" fill="var(--primary)" strokeWidth={3}/>
       </span>}
     {showEditBox.value &&
       <Input
@@ -314,7 +349,7 @@ function GameConfigEditorWithFileChoose(props: IGameConfigEditor & {
       basePath={[props.sourceBase]}
       button={
         <span className={styles.editButton}>
-          <Write theme="outline" size="16" fill="#005CAF" strokeWidth={3}/>
+          <Write theme="outline" size="16" fill="var(--primary)" strokeWidth={3}/>
         </span>
       }
       selectedFilePath={props.value}
@@ -372,7 +407,6 @@ function GameConfigEditorWithImageFileChoose(props: IGameConfigEditorMulti & {
         onChange={(file) => {
           if (file) {
             addImage(file.name);
-            // eventBus.emit('scrollTopbarToEnd');
           }
         }}
         extNames={props.extNameList}/>

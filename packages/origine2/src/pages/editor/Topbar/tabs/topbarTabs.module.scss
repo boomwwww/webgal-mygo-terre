@@ -21,7 +21,7 @@
 }
 
 .sidebar_gameconfig_title {
-  color: #323130;
+  color: var(--text);
   text-align: center;
   font-size: 14px;
   font-style: normal;
@@ -57,7 +57,7 @@
 .divider {
   height: 90%;
   align-self: center;
-  border-right: 1px solid rgba(0, 0, 0, 0.2);
+  border-right: var(--border-sm);
   margin-left: 0.5em;
 }
 
@@ -131,4 +131,14 @@
   display: flex;
   align-items: center;
   gap: 8px;
+}
+
+.tips {
+  color: var(--text-weak);
+  font-weight: bolder;
+  font-size: smaller;
+  text-align: left;
+  height: 100%;
+  padding: 4px;
+  border-radius: 4px;
 }

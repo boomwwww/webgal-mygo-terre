@@ -59,6 +59,7 @@ export default function TextEditor(props: ITextEditorProps) {
       unicodeHighlight: { ambiguousCharacters: false },
       wordWrap: isAutoWarp ? 'on' : 'off' ,
       smoothScrolling: true,
+      quickSuggestions: { other: true, comments: true, strings: true },
     });
     updateEditData();
   }
@@ -94,7 +95,7 @@ export default function TextEditor(props: ITextEditorProps) {
     // const lineNumber = ev.changes[0].range.startLineNumber;
     // const trueLineNumber = getTrueLinenumber(lineNumber, value ?? "");
     if (value) currentText.value = value;
-    eventBus.emit('update-scene', currentText.value);
+    eventBus.emit('editor:update-scene', { scene: currentText.value });
     api.assetsControllerEditTextFile({textFile: currentText.value, path: props.targetPath}).then((res) => {
       const targetValue = currentText.value.split('\n')[lineNumber - 1];
       WsUtil.sendSyncCommand(target?.path??'', lineNumber, targetValue);
@@ -109,7 +110,7 @@ export default function TextEditor(props: ITextEditorProps) {
       .then((data) => {
         // currentText.set(data);
         currentText.value = data.toString();
-        eventBus.emit('update-scene', data.toString());
+        eventBus.emit('editor:update-scene', { scene: data.toString() });
         const model = editorRef.current?.getModel();
         model?.applyEdits([
           {

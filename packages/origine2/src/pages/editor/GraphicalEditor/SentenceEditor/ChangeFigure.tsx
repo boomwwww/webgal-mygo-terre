@@ -18,6 +18,7 @@ import { combineSubmitString } from "@/utils/combineSubmitString";
 import { extNameMap } from "../../ChooseFile/chooseFileConfig";
 import SearchableCascader from "@/pages/editor/GraphicalEditor/components/SearchableCascader";
 import { useEaseTypeOptions } from "@/hooks/useEaseTypeOptions";
+import { WsUtil } from "@/utils/wsUtil";
 
 type FigurePosition = "" | "left" | "right";
 type AnimationFlag = "" | "on";
@@ -195,7 +196,7 @@ export default function ChangeFigure(props: ISentenceEditorProps) {
     return { motions: [], expressions: [] };
   }
 
-  // 载入 motions / expressions（支持 .jsonl / .json / spine）
+  // 载入 motions / expressions（支持 .jsonl / .json / spine / .wmdl）
   useEffect(() => {
     // reset
     setIsJsonlFormat(false);
@@ -265,6 +266,33 @@ export default function ChangeFigure(props: ISentenceEditorProps) {
         }
       });
     }
+
+    // WMDL (L2DW 新版模型配置文件)
+    if (pathLower.endsWith(".wmdl")) {
+      const url = `/games/${gameDir}/game/figure/${pathRaw}`;
+      axios.get(url).then((resp) => {
+        const wmdlData = resp.data;
+
+        if (wmdlData?.modelRelativePath) {
+          const mainModelPath = String(wmdlData.modelRelativePath);
+          const dir = url.substring(0, url.lastIndexOf("/"));
+          const mainModelUrl = `${dir}/${mainModelPath}`;
+
+          // 进一步获取主模型文件，解析 motions 和 expressions
+          axios.get(mainModelUrl).then((modelResp) => {
+            const modelData = modelResp.data;
+            if (modelData?.motions) {
+              const motions = Object.keys(modelData.motions);
+              setL2dMotionsList(motions.sort((a, b) => a.localeCompare(b)));
+            }
+            if (modelData?.expressions) {
+              const exps: string[] = (modelData.expressions as Array<{ name: string }>)?.map((e) => e.name);
+              setL2dExpressionsList((exps || []).sort((a, b) => a.localeCompare(b)));
+            }
+          });
+        }
+      });
+    }
   }, [figureFile.value, gameDir]);
 
   useEffect(() => {
@@ -286,6 +314,12 @@ export default function ChangeFigure(props: ISentenceEditorProps) {
       setIsAccordionOpen(false);
     }
   }, [animationFlag.value]);
+
+  // 是否为 Live2D 变体（json/jsonl/wmdl）
+  const isLive2DVariant = useMemo(() => {
+    const url = figureFile.value.toLowerCase();
+    return url.endsWith('.json') || url.endsWith('.jsonl') || url.endsWith('.wmdl');
+  }, [figureFile.value]);
 
   const submit = () => {
     const submitString = combineSubmitString(
@@ -382,7 +416,7 @@ export default function ChangeFigure(props: ISentenceEditorProps) {
         </CommonOptions>
       )}
 
-      {figureFile.value.includes('.json') && (
+      {(isLive2DVariant || isSpineJsonFormat) && (
         <>
           <CommonOptions key="24" title={isSpineJsonFormat ? t`Spine 动画` : t`Live2D 动作`}>
             <SearchableCascader
@@ -472,7 +506,7 @@ export default function ChangeFigure(props: ISentenceEditorProps) {
                 }}
               />
             </CommonOptions>
-            {!figureFile.value.includes('.json') ? (
+            {!isLive2DVariant ? (
               <>
                 <CommonOptions title={t`唇形同步与眨眼`} key="5">
                   <WheelDropdown
@@ -638,10 +672,28 @@ export default function ChangeFigure(props: ISentenceEditorProps) {
       >
         <CommonTips
           text={t`提示：效果只有在切换到不同立绘或关闭之前的立绘再重新添加时生效。如果你要为现有的立绘设置效果，请使用单独的设置效果命令`}/>
-        <EffectEditor json={json.value.toString()} onChange={(newJson) => {
-          json.set(newJson);
-          submit();
-        }}/>
+        <EffectEditor
+          json={json.value.toString()}
+          onChange={(newJson) => {
+            json.set(newJson);
+            submit();
+          }}
+          onUpdate={(transform) => {
+            let target = id.value;
+            if (target === "") {
+              // 根据位置确定目标
+              if (figurePosition.value === "left") {
+                target = "fig-left";
+              } else if (figurePosition.value === "right") {
+                target = "fig-right";
+              } else {
+                target = "fig-center";
+              }
+              const newEffect = { target: target, transform: transform };
+              WsUtil.sendSetEffectCommand(JSON.stringify(newEffect));
+            }
+          }}
+        />
       </TerrePanel>
 
     </div>

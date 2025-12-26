@@ -4,27 +4,27 @@
 
 #### 新功能
 
-为编辑器新增可搜索的级联选择器，优化复杂选项的查找体验
+新增全局暗色主题，并优化各编辑器和资源视图的暗色样式
 
-新增立绘眨眼（Blink）和焦点（Focus）参数的可视化配置
+新增模板和字体配置
 
-优化了图标生成器，提升性能并改善了 Windows 平台下的图标质量
+新增快速同步特效
 
-新增 Gzip 压缩支持，减小导出游戏体积
+动画编辑器支持舞台等更多目标，扩展动画能力
 
-重构了特效编辑器，提升了组件的易用性和可维护性
+集成 Steamworks.js，提供 Steam 功能的图形化编辑器
 
-为动画缓动（Ease）效果新增了默认值和保持选项
+导出游戏增加展示到 WebGAL 主页的示例提示和指引链接
 
 #### 修复
 
-修复了 ARM64 架构下的打包问题
+修复资源路径编码问题，提升多平台打包稳定性
 
-修复了在特定情况下文件选择器返回错误文件路径的问题
+优化模板编辑器侧边栏样式
 
-修复了快速预览窗口在获取焦点时，脚本未同步到首行的问题
+修复提交参数顺序问题
 
-修复了缓动（Ease）类型缺少国际化翻译的问题
+修复误改 say 命令的问题
 
 <!-- English Translation -->
 ## Release Notes
@@ -33,27 +33,27 @@
 
 #### New Features
 
-Added a searchable cascader to the editor to optimize finding complex options
+Added a global dark theme and polished dark-mode styles across editors and resource views
 
-Added visual configuration for figure Blink and Focus parameters
+Added template and font configuration
 
-Optimized the icon generator, improving performance and icon quality on Windows
+Added a fast sync effect
 
-Added Gzip compression support to reduce the size of exported games
+Animation editor now supports stage and other targets to expand animation capabilities
 
-Refactored the effect editor, improving component usability and maintainability
+Integrated Steamworks.js with a graphical editor for Steam functions
 
-Added default value and keep options for animation easing (Ease) effects
+Added showcase hints and a guide link on the export tab to feature games on the WebGAL homepage
 
 #### Fixes
 
-Fixed packaging issues on the ARM64 architecture
+Fixed resource path encoding to stabilize multi-platform packaging
 
-Fixed an issue where the file chooser returned an incorrect file path in certain situations
+Improved template editor sidebar styling
 
-Fixed an issue where the script did not sync to the first line when the fast preview window gained focus
+Fixed submit argument order
 
-Fixed missing internationalization for ease types
+Fixed accidental change from `say` to comment
 
 <!-- Japanese Translation -->
 ## リリースノート
@@ -62,24 +62,24 @@ Fixed missing internationalization for ease types
 
 #### 新機能
 
-エディタに検索可能なカスケードセレクタを追加し、複雑なオプションの検索体験を最適化しました
+グローバルなダークテーマを追加し、各エディターやリソース表示のダークモードスタイルを整えました
 
-立ち絵のまばたき（Blink）と焦点（Focus）パラメータの視覚的な設定を追加しました
+テンプレートとフォントの設定を追加しました
 
-アイコンジェネレータを最適化し、パフォーマンスを向上させ、Windows プラットフォームでのアイコン品質を改善しました
+高速同期エフェクトを追加しました
 
-Gzip 圧縮のサポートを追加し、エクスポートされたゲームのサイズを削減しました
+アニメーションエディターでステージなどのターゲットを選べるようにし、表現を拡張しました
 
-エフェクトエディタをリファクタリングし、コンポーネントの使いやすさと保守性を向上させました
+Steamworks.js を統合し、Steam 機能のグラフィカルエディターを追加しました
 
-アニメーションのイージング（Ease）効果にデフォルト値と保持オプションを追加しました
+エクスポートタブに WebGAL ホームページ掲載用のショーケースヒントとガイドリンクを追加しました
 
 #### 修正
 
-ARM64 アーキテクチャでのパッケージング問題を修正しました
+リソースパスのエンコードを修正し、マルチプラットフォームのパッケージングを安定させました
 
-特定の状況下でファイルチューザーが誤ったファイルパスを返す問題を修正しました
+テンプレートエディターのサイドバー表示を修正しました
 
-高速プレビューウィンドウがフォーカスされた際に、スクリプトが先頭行に同期されない問題を修正しました
+送信引数の順序を修正しました
 
-イージング（Ease）タイプの国際化翻訳が欠落している問題を修正しました
+誤って `say` を comment に置き換えた問題を修正しました
