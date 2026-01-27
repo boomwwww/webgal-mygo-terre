@@ -753,6 +753,7 @@ msgstr "启动图"
 #: src/pages/editor/GraphicalEditor/components/SearchableCascader.tsx:227
 #: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:217
 #: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:227
+#: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:284
 #: src/pages/editor/Topbar/tabs/Settings/SettingsTab.tsx:188
 #: src/pages/editor/Topbar/tabs/ViewConfig/ViewTab.tsx:81
 msgid "启用"
@@ -1885,6 +1886,7 @@ msgstr "禁止跳过视频"
 
 #: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:218
 #: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:228
+#: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:285
 msgid "禁用"
 msgstr "禁用"
 
@@ -2106,6 +2108,10 @@ msgstr "自动"
 #: src/pages/editor/Topbar/tabs/Settings/SettingsTab.tsx:175
 msgid "自动换行"
 msgstr "自动换行"
+
+#: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:279
+msgid "自动旋转"
+msgstr "自动旋转"
 
 #: src/pages/editor/Topbar/Topbar.tsx:132
 msgid "自动隐藏功能区"
@@ -2442,7 +2448,7 @@ msgstr "选择动画文件"
 msgid "选择图片"
 msgstr "选择图片"
 
-#: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:404
+#: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:414
 msgid "选择图片文件"
 msgstr "选择图片文件"
 

@@ -762,6 +762,7 @@ msgstr "ロゴ"
 #: src/pages/editor/GraphicalEditor/components/SearchableCascader.tsx:227
 #: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:217
 #: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:227
+#: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:284
 #: src/pages/editor/Topbar/tabs/Settings/SettingsTab.tsx:188
 #: src/pages/editor/Topbar/tabs/ViewConfig/ViewTab.tsx:81
 msgid "启用"
@@ -1894,6 +1895,7 @@ msgstr "動画のスキップを無効にする"
 
 #: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:218
 #: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:228
+#: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:285
 msgid "禁用"
 msgstr "無効化"
 
@@ -2115,6 +2117,10 @@ msgstr "自動"
 #: src/pages/editor/Topbar/tabs/Settings/SettingsTab.tsx:175
 msgid "自动换行"
 msgstr "自動折り返し"
+
+#: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:279
+msgid "自动旋转"
+msgstr "自動回転"
 
 #: src/pages/editor/Topbar/Topbar.tsx:132
 msgid "自动隐藏功能区"
@@ -2451,7 +2457,7 @@ msgstr "アニメーションファイルを選択"
 msgid "选择图片"
 msgstr "画像を選択"
 
-#: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:404
+#: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:414
 msgid "选择图片文件"
 msgstr "画像ファイルを選択"
 

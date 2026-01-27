@@ -759,6 +759,7 @@ msgstr "Startup image"
 #: src/pages/editor/GraphicalEditor/components/SearchableCascader.tsx:227
 #: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:217
 #: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:227
+#: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:284
 #: src/pages/editor/Topbar/tabs/Settings/SettingsTab.tsx:188
 #: src/pages/editor/Topbar/tabs/ViewConfig/ViewTab.tsx:81
 msgid "启用"
@@ -1895,6 +1896,7 @@ msgstr "Disable skipping video"
 
 #: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:218
 #: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:228
+#: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:285
 msgid "禁用"
 msgstr "Disabled"
 
@@ -2116,6 +2118,10 @@ msgstr "Auto"
 #: src/pages/editor/Topbar/tabs/Settings/SettingsTab.tsx:175
 msgid "自动换行"
 msgstr "Auto wrap"
+
+#: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:279
+msgid "自动旋转"
+msgstr "Auto rotate"
 
 #: src/pages/editor/Topbar/Topbar.tsx:132
 msgid "自动隐藏功能区"
@@ -2452,7 +2458,7 @@ msgstr "Choose animation file"
 msgid "选择图片"
 msgstr "Choose image"
 
-#: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:404
+#: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:414
 msgid "选择图片文件"
 msgstr "Choose image file"
 
