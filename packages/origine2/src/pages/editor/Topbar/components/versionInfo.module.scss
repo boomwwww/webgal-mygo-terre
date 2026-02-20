@@ -1,0 +1,17 @@
+.trigger {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.versionTitle {
+  color: var(--text-weak);
+}
+
+.versionNumber {
+  color: var(--text);
+}
+
+.tip {
+  font-size: smaller;
+}
