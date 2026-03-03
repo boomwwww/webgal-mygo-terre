@@ -276,6 +276,16 @@ export default function GameConfig() {
           <div className={styles.tips}>{t`刷新游戏后生效`}</div>
         </div>
       </TabItem>
+      <TabItem title={t`自动旋转`}>
+        <GameConfigEditorWithSelector
+          key="autoRotate"
+          value={getConfigContentAsString('Auto_Rotate') ? getConfigContentAsString('Auto_Rotate') : 'true'}
+          selectItems={[
+            {key: 'true', text: t`启用`},
+            {key: 'false', text: t`禁用`}
+          ]}
+          onChange={(e: string) => updateGameConfigSimpleByKey('Auto_Rotate', e)}/>
+      </TabItem>
     </>
   );
 }
