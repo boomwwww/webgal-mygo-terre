@@ -1414,11 +1414,9 @@ msgstr "Auto"
 msgid "自动换行"
 msgstr "Auto wrap"
 
-#: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:279
 msgid "自动旋转"
 msgstr "Auto rotate"
 
-#: src/pages/editor/Topbar/Topbar.tsx:132
 msgid "自动隐藏功能区"
 msgstr "Auto-hide toolbar"
 

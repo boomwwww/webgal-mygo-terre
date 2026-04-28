@@ -1414,11 +1414,9 @@ msgstr "自动"
 msgid "自动换行"
 msgstr "自动换行"
 
-#: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:279
 msgid "自动旋转"
 msgstr "自动旋转"
 
-#: src/pages/editor/Topbar/Topbar.tsx:132
 msgid "自动隐藏功能区"
 msgstr "自动隐藏功能区"
 

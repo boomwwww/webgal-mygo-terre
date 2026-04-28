@@ -50,7 +50,7 @@ const About: React.FunctionComponent = () => {
                   <br />
                 </>
               } */}
-              <span>{`WebGAL version: ${__INFO.version}`}</span>
+              <span>{`WebGAL Terre version: ${__INFO.version}`}</span>
               <br />
               <span>{t`运行平台`}: {osInfo?.platform} {osInfo?.arch}</span>
               <br />
