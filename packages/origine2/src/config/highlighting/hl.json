@@ -136,6 +136,7 @@
     },
     "character-colon": {
       "comment": "[char]:[utt[ -args]][;cmt]",
+      "match": "^(?!(?:say|changeBg|changeFigure|bgm|playVideo|pixiPerform|pixiInit|intro|miniAvatar|changeScene|choose|end|setComplexAnimation|label|jumpLabel|setVar|callScene|showVars|unlockCg|unlockBgm|filmMode|setTextbox|setAnimation|playEffect|setTempAnimation|setTransform|setTransition|getUserInput|applyStyle|wait|callSteam)\\:)(.*?)(\\:)([^\\;\\n]*?)($|\\;.*?$)",
       "match": "^(?!(?:say|changeBg|changeFigure|bgm|playVideo|pixiPerform|pixiInit|intro|miniAvatar|changeScene|choose|end|setComplexAnimation|label|jumpLabel|setVar|callScene|showVars|unlockCg|unlockBgm|filmMode|setTextbox|setAnimation|playEffect|setTempAnimation|setTransform|setTransition|getUserInput|applyStyle|wait)\\:)(.*?)(\\:)([^\\;\\n]*?)($|\\;.*?$)",
       "captures": {
         "1": {
@@ -171,6 +172,7 @@
     },
     "command-colon": {
       "comment": "cmd:[arg0[ -args]][;cmt]",
+      "match": "^(say|changeBg|changeFigure|bgm|playVideo|pixiPerform|pixiInit|intro|miniAvatar|changeScene|choose|end|setComplexAnimation|label|jumpLabel|setVar|callScene|showVars|unlockCg|unlockBgm|filmMode|setTextbox|setAnimation|playEffect|setTempAnimation|setTransform|setTransition|getUserInput|applyStyle|wait|callSteam)(\\:)([^\\;\\n]*?)($|\\;.*?$)",
       "match": "^(say|changeBg|changeFigure|bgm|playVideo|pixiPerform|pixiInit|intro|miniAvatar|changeScene|choose|end|setComplexAnimation|label|jumpLabel|setVar|callScene|showVars|unlockCg|unlockBgm|filmMode|setTextbox|setAnimation|playEffect|setTempAnimation|setTransform|setTransition|getUserInput|applyStyle|wait)(\\:)([^\\;\\n]*?)($|\\;.*?$)",
       "captures": {
         "1": {
@@ -206,6 +208,7 @@
     },
     "command-semicolon": {
       "comment": "cmd;[cmt]",
+      "match": "^(say|changeBg|changeFigure|bgm|playVideo|pixiPerform|pixiInit|intro|miniAvatar|changeScene|choose|end|setComplexAnimation|label|jumpLabel|setVar|callScene|showVars|unlockCg|unlockBgm|filmMode|setTextbox|setAnimation|playEffect|setTempAnimation|setTransform|setTransition|getUserInput|applyStyle|wait|callSteam)($|\\;.*?$)",
       "match": "^(say|changeBg|changeFigure|bgm|playVideo|pixiPerform|pixiInit|intro|miniAvatar|changeScene|choose|end|setComplexAnimation|label|jumpLabel|setVar|callScene|showVars|unlockCg|unlockBgm|filmMode|setTextbox|setAnimation|playEffect|setTempAnimation|setTransform|setTransition|getUserInput|applyStyle|wait)($|\\;.*?$)",
       "captures": {
         "1": {
@@ -227,6 +230,7 @@
     },
     "utterance-semicolon": {
       "comment": "utt[ -args];[cmt]",
+      "match": "^(?!(?:say|changeBg|changeFigure|bgm|playVideo|pixiPerform|pixiInit|intro|miniAvatar|changeScene|choose|end|setComplexAnimation|label|jumpLabel|setVar|callScene|showVars|unlockCg|unlockBgm|filmMode|setTextbox|setAnimation|playEffect|setTempAnimation|setTransform|setTransition|getUserInput|applyStyle|wait|callSteam)\\;)([^\\:\\;\\n]+?)($|\\;.*?$)",
       "match": "^(?!(?:say|changeBg|changeFigure|bgm|playVideo|pixiPerform|pixiInit|intro|miniAvatar|changeScene|choose|end|setComplexAnimation|label|jumpLabel|setVar|callScene|showVars|unlockCg|unlockBgm|filmMode|setTextbox|setAnimation|playEffect|setTempAnimation|setTransform|setTransition|getUserInput|applyStyle|wait)\\;)([^\\:\\;\\n]+?)($|\\;.*?$)",
       "captures": {
         "1": {

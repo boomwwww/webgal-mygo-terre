@@ -255,8 +255,7 @@ export const sentenceEditorConfig: ISentenceEditorConfig[] = [
     descText: () => t`获取来自用户的字符输入`
   },
   {
-    type: callSteamType,
-    commandRaw: CALL_STEAM_COMMAND_RAW,
+    type: commandType.callSteam,
     title: () => t`调用 Steam`,
     initialText: () => t`callSteam: -achievementId=;`,
     component: CallSteam,
