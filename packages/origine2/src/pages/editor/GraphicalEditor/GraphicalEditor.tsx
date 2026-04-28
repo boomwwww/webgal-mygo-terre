@@ -11,7 +11,6 @@ import {DeleteFive, Sort, DownOne, RightOne, Play} from "@icon-park/react";
 import AddSentence, {addSentenceType} from "./components/AddSentence";
 import {editorLineHolder} from "@/runtime/WG_ORIGINE_RUNTIME";
 import {eventBus} from "@/utils/eventBus";
-import { createId } from "@/utils/createId";
 import { t } from "@lingui/macro";
 import { api } from "@/api";
 
@@ -32,7 +31,7 @@ export default function GraphicalEditor(props: IGraphicalEditorProps) {
   const sentenceData = useValue<SentenceItem[]>([]);
 
   const generateSentenceItem = (content: string): SentenceItem => ({
-    id: createId(),
+    id: crypto.randomUUID(),
     content,
     show: true,
   });
@@ -48,7 +47,7 @@ export default function GraphicalEditor(props: IGraphicalEditorProps) {
         return existing && existing.content === content
           ? existing
           : {
-            id: createId(),
+            id: crypto.randomUUID(),
             content,
             show: existing?.show ?? true
           };

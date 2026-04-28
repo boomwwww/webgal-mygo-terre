@@ -40,7 +40,6 @@ export enum commandType {
   getUserInput = 31,
   applyStyle = 32,
   wait = 33,
-  callSteam = 34,
 }
 
 export function markdown(content: string): MarkupContent {

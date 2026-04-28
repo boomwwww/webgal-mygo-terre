@@ -1,4 +1,4 @@
-export function pprintJSON(obj: unknown, needStringify = false) {
+export function pprintJSON(obj: Object, needStringify = false) {
   let jsonStr: string;
 
   if (needStringify) {

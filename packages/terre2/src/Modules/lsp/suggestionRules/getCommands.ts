@@ -31,8 +31,7 @@ say:<text>;
     documentation: markdown(
       `\`\`\`
 changeBg:testBG03.jpg -next;
-changeBg:testBG03.jpg -enter=fadeIn -exit=fadeOut;
-changeBg:<fileName> [-next] [-enter=animationName] [-exit=animationName];
+changeBg:<fileName> [-next];
 \`\`\``,
     ),
   },
@@ -44,71 +43,7 @@ changeBg:<fileName> [-next] [-enter=animationName] [-exit=animationName];
     documentation: markdown(
       `\`\`\`
 changeFigure:testFigure03.png -left -next;
-changeFigure:testFigure03.png -left -enter=fadeIn -exit=fadeOut;
-changeFigure:<fileName> [-left] [-right] [id=figureId] [-next] [-enter=animationName] [-exit=animationName];
-\`\`\``,
-    ),
-  },
-  {
-    kind: CompletionItemKind.Function,
-    label: 'bgm',
-    insertText: makeInsertText('bgm'),
-    detail: `背景音乐（BGM）`,
-    documentation: markdown(
-      `\`\`\`
-bgm:夏影.mp3;
-bgm:<fileName>;
-\`\`\``,
-    ),
-  },
-  {
-    kind: CompletionItemKind.Function,
-    label: 'playVideo',
-    insertText: makeInsertText('playVideo'),
-    detail: `播放视频`,
-    documentation: markdown(
-      `\`\`\`
-playVideo:OP.mp4;
-playVideo:<fileName>;
-\`\`\``,
-    ),
-  },
-  {
-    kind: CompletionItemKind.Function,
-    label: 'pixiPerform',
-    insertText: makeInsertText('pixiPerform'),
-    detail: `应用 Pixi 特效`,
-    documentation: markdown(
-      `注意：特效作用后，如果没有初始化，特效会一直运行。
-\`\`\`
-pixiPerform:<performName>;
-\`\`\``,
-    ),
-  },
-  {
-    kind: CompletionItemKind.Function,
-    label: 'pixiInit',
-    insertText: 'pixiInit;',
-    detail: `初始化 Pixi 特效`,
-    documentation: markdown(
-      `1.如果你要使用特效，那么你必须先运行这个命令来初始化 Pixi。
-2.如果你想要消除已经作用的效果，你可以使用这个语法来清空效果。
-\`\`\`
-pixiInit;
-\`\`\``,
-    ),
-  },
-  {
-    kind: CompletionItemKind.Function,
-    label: 'intro',
-    insertText: makeInsertText('intro'),
-    detail: `黑屏独白`,
-    documentation: markdown(
-      `在许多游戏中，会以黑屏显示一些文字，用来引入主题或表现人物的心理活动。你可以使用 intro 命令来演出独白。
-独白的分拆以分隔符(|)来分割，也就是说，每一个 | 代表一个换行。
-\`\`\`
-intro:回忆不需要适合的剧本，|反正一说出口，|都成了戏言。;
-intro:<text> [|<text of line 2>] ...;
+changeFigure:<fileName> [-left] [-right] [id=figureId] [-next];
 \`\`\``,
     ),
   },
@@ -473,19 +408,6 @@ applyStyle:<origStyleName>-><newStyleName>(,<origStyleName2>-><newStyleName2>,..
       `等待一段时间，单位为毫秒
 \`\`\`
 wait: 5000; 等待5秒钟
-\`\`\``,
-    ),
-  },
-  {
-    kind: CompletionItemKind.Function,
-    label: 'callSteam',
-    insertText: makeInsertText('callSteam'),
-    detail: `调用 Steam`,
-    documentation: markdown(
-      `调用 Steam
-\`\`\`
-callSteam: -achievementId=ACH_WIN_ONE_GAME;
-callSteam: -achievementId=achievementId;
 \`\`\``,
     ),
   },

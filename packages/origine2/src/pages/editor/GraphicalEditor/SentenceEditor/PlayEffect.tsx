@@ -23,7 +23,6 @@ export default function PlayEffect(props: ISentenceEditorProps) {
         {key: "volume", value: volume.value},
         {key: "id", value: id.value},
       ],
-      props.sentence.inlineComment,
     );
     props.onSubmit(submitString);
   };

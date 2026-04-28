@@ -35,15 +35,12 @@ const About: React.FunctionComponent = () => {
         <div>
           <Text as='h1' block size={500}>
             WebGAL Terre MyGO
-            WebGAL Terre MyGO
           </Text>
           <Text as='b' block>
             <p>{t`视觉小说编辑，再进化`}</p>
             <small>
               {t`当前版本`}: {`MyGO_v${config.version} (${__INFO.buildTime.toLocaleString('zh-CN', dateTimeOptions).replaceAll('/', '-')})`}
-              {t`当前版本`}: {`MyGO_v${config.version} (${__INFO.buildTime.toLocaleString('zh-CN', dateTimeOptions).replaceAll('/', '-')})`}
               <br />
-              {/* {
               {/* {
                 latestRelease &&
                 <>
@@ -53,14 +50,10 @@ const About: React.FunctionComponent = () => {
                   <br />
                 </>
               } */}
-              <span>{`WebGAL Terre version: ${__INFO.version}`}</span>
-              <br />
-              } */}
               <span>{`WebGAL version: ${__INFO.version}`}</span>
               <br />
               <span>{t`运行平台`}: {osInfo?.platform} {osInfo?.arch}</span>
               <br />
-              {/* <p>
               {/* <p>
                 {
                   latestRelease?.hasNewVersion &&
@@ -68,7 +61,6 @@ const About: React.FunctionComponent = () => {
                     {t`获取最新版本`}
                   </Button>
                 }
-              </p> */}
               </p> */}
               <hr />
               <div >

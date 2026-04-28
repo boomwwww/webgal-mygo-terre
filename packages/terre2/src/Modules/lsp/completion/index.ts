@@ -8,10 +8,7 @@ import { TextDocument } from 'vscode-languageserver-textdocument';
 import { IScene } from 'webgal-parser/build/types/interface/sceneInterface';
 import { pprintJSON } from '../../../util/strings';
 import { webgalParser } from '../../../util/webgal-parser';
-import {
-  handleAnimationFileSuggestions,
-  handleFileSuggestions,
-} from './fileSuggestion';
+import { handleFileSuggestions } from './fileSuggestion';
 import { commandType } from './commandArgs';
 import { lastVariables } from '../webgalLsp';
 import { getCommands } from '../suggestionRules/getCommands';
@@ -139,15 +136,6 @@ export async function complete(
     if (line.includes(' -')) {
       if (line.match('\\s\\-(\\w*?)$')) {
         newSuggestions = getArgsKey(line, sentence.command);
-      } else if (
-        line.match('\\s\\-(enter|exit)=[^\\s;]*$') &&
-        [
-          commandType.changeBg,
-          commandType.changeFigure,
-          commandType.setTransition,
-        ].includes(sentence.command)
-      ) {
-        newSuggestions = await handleAnimationFileSuggestions(basePath, line);
       }
     } else {
       switch (sentence.command) {

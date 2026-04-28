@@ -189,7 +189,6 @@ export default function Intro(props: ISentenceEditorProps) {
         {key: "hold", value: isHold.value},
         {key: "userForward", value: isUserForward.value},
       ],
-      props.sentence.inlineComment,
     );
     props.onSubmit(submitString);
   };

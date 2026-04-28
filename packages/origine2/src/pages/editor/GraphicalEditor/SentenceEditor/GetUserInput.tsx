@@ -22,7 +22,6 @@ export default function GetUserInput(props: ISentenceEditorProps) {
         {key: "title", value: title.value},
         {key: "buttonText", value: buttonText.value},
       ],
-      props.sentence.inlineComment,
     );
     props.onSubmit(submitString);
   };

@@ -55,24 +55,13 @@ export interface EditTextFileDto {
   textFile: string;
 }
 
-export interface CopyFileWithIncrementDto {
-  /** The source path of the file to be copied */
-  source: string;
-}
-
 export interface TemplateFontConfigDto {
   /** The font-family name */
   "font-family": string;
   /** The url of the font file */
   url: string;
-  /** The font type used for @font-face format */
-  type:
-    | "truetype"
-    | "opentype"
-    | "woff"
-    | "woff2"
-    | "embedded-opentype"
-    | "svg";
+  /** The font format type */
+  type: string;
 }
 
 export interface TemplateConfigDto {
@@ -139,11 +128,6 @@ export interface EditSceneDto {
   sceneData: string;
 }
 
-export interface UpdateAnimationTableDto {
-  /** The name of the game directory */
-  gameName: string;
-}
-
 export interface GameConfigDto {
   /** The name of the game */
   gameName: string;
@@ -182,8 +166,6 @@ export interface TemplateInfoDto {
   id: string;
   /** The webgal version of the template */
   "webgal-version": string;
-  /** The font registrations of the template */
-  fonts?: TemplateFontConfigDto[];
   /** The dir of the template */
   dir: string;
 }
@@ -584,26 +566,6 @@ export class Api<
     /**
      * No description
      *
-     * @tags Assets
-     * @name AssetsControllerCopyFileWithIncrement
-     * @summary Copy File With Increment
-     * @request POST:/api/assets/copyFileWithIncrement
-     */
-    assetsControllerCopyFileWithIncrement: (
-      data: CopyFileWithIncrementDto,
-      params: RequestParams = {},
-    ) =>
-      this.request<void, void>({
-        path: `/api/assets/copyFileWithIncrement`,
-        method: "POST",
-        body: data,
-        type: ContentType.Json,
-        ...params,
-      }),
-
-    /**
-     * No description
-     *
      * @tags Manage Game
      * @name ManageGameControllerGetGameList
      * @summary Retrieve game list
@@ -858,26 +820,6 @@ export class Api<
     ) =>
       this.request<void, void>({
         path: `/api/manageGame/editTextFile`,
-        method: "POST",
-        body: data,
-        type: ContentType.Json,
-        ...params,
-      }),
-
-    /**
-     * No description
-     *
-     * @tags Manage Game
-     * @name ManageGameControllerUpdateAnimationTable
-     * @summary Update Animation Table
-     * @request POST:/api/manageGame/updateAnimationTable
-     */
-    manageGameControllerUpdateAnimationTable: (
-      data: UpdateAnimationTableDto,
-      params: RequestParams = {},
-    ) =>
-      this.request<void, void>({
-        path: `/api/manageGame/updateAnimationTable`,
         method: "POST",
         body: data,
         type: ContentType.Json,

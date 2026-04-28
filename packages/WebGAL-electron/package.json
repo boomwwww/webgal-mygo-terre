@@ -36,7 +36,7 @@
       ]
     },
     "mac": {
-      "icon": "public/icon.png",
+      "icon": "public/icon.ico",
       "x64ArchFiles": "*"
     },
     "electronDownload": {

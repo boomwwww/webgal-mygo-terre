@@ -14,7 +14,6 @@ export default function SetTextbox(props: ISentenceEditorProps) {
       isHideTextbox.value ? "hide" : "on",
       props.sentence.args,
       [],
-      props.sentence.inlineComment,
     );
     props.onSubmit(submitString);
   };

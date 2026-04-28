@@ -16,7 +16,6 @@ import { List, ListItem } from "@fluentui/react-list-preview";
 import useSWR, { mutate } from 'swr';
 import TemplateConfigDialog from './TemplateConfigDialog';
 import {PlugConnected20Regular, Settings20Regular} from "@fluentui/react-icons";
-import { createId } from '@/utils/createId';
 
 export default function TemplateEditorSidebar() {
   const templateDir = useEditorStore.use.subPage();
@@ -50,7 +49,7 @@ export default function TemplateEditorSidebar() {
     if (templateConfig && !templateConfig.id) {
       const newTemplateConfig = {
         ...templateConfig,
-        id: createId(),
+        id: crypto.randomUUID(),
       };
       api.manageTemplateControllerUpdateTemplateConfig({templateDir, newTemplateConfig});
       mutate(`/templateConfig/${templateDir}`);

@@ -6,7 +6,6 @@ import { arg } from "webgal-parser/src/interface/sceneInterface";
  * @param content 语句内容
  * @param originalArgs 原始参数数组
  * @param newArgs 新的参数数组, 若 fullMode 为 false, 会将值为 true 的 arg 简写为 -arg, 省略值为 false 或空字符串的 arg
- * @param inlineComment 行内注释
  * @returns 合并后的用于提交的字符串
  */
 // eslint-disable-next-line max-params
@@ -14,8 +13,7 @@ export function combineSubmitString (
   commandStr: string | undefined,
   content: string,
   originalArgs: Array<arg>,
-  newArgs: Array<{key: string, value: string | boolean | number, fullMode?: boolean}>,
-  inlineComment: string,
+  newArgs: Array<{key: string, value: string | boolean | number, fullMode?: boolean}>
 ): string {
   const argStrings: Array<string> = [];
   const unsupportedArg = new Map<string, string | boolean | number>();
@@ -42,10 +40,6 @@ export function combineSubmitString (
     combinedString += `${commandStr}:`;
   }
   combinedString += `${content}${argStrings.join("")};`;
-
-  if (inlineComment && inlineComment.trim().length > 0) {
-    combinedString += ` ${inlineComment.trim()}`;
-  }
 
   return combinedString;
 }

@@ -151,11 +151,11 @@ export default function TemplateConfigDialog({
       return;
     }
 
-    const sanitizedFonts: TemplateFontConfigDto[] = fonts
+    const sanitizedFonts = fonts
       .map((font) => ({
         'font-family': font['font-family'].trim(),
         url: font.url.trim(),
-        type: font.type,
+        type: font.type.trim(),
       }))
       .filter((font) => font['font-family'] || font.url || font.type);
 

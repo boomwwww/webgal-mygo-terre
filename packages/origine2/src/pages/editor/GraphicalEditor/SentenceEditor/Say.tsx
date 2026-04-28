@@ -103,7 +103,6 @@ export default function Say(props: ISentenceEditorProps) {
         {key: "id", value: figurePosition.value === "id"},
         {key: "figureId", value: (figurePosition.value === "id" ? figureId.value : "")},
       ],
-      props.sentence.inlineComment,
     );
     props.onSubmit(submitString);
   };
