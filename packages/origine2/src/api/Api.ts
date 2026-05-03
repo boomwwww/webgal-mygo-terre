@@ -216,6 +216,19 @@ export interface GetStyleByClassNameDto {
   filePath: string;
 }
 
+export interface OutputTemplateDto {
+  /** The template directory name */
+  templateDir: string;
+}
+
+export interface ImportTemplateDto {
+  /**
+   * The template's zip file
+   * @format binary
+   */
+  file: File;
+}
+
 import type {
   AxiosInstance,
   AxiosRequestConfig,
@@ -413,6 +426,22 @@ export class Api<
       this.request<void, any>({
         path: `/api/test`,
         method: "GET",
+        ...params,
+      }),
+    /**
+     * 获取图片尺寸
+     * @tags Assets
+     * @name AssetsControllerGetImageDimensions
+     * @request GET:/api/assets/getImageDimensions/{imagePath}
+     */
+    assetsControllerGetImageDimensions: (
+      imagePath: string,
+      params: RequestParams = {},
+    ) =>
+      this.request<{ width: number; height: number; type: string }, any>({
+        path: `/api/assets/getImageDimensions/${imagePath}`,
+        method: "GET",
+        format: "json",
         ...params,
       }),
 
@@ -1143,6 +1172,46 @@ export class Api<
         body: data,
         type: ContentType.Json,
         format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Manage Template
+     * @name ManageTemplateControllerOutputTemplate
+     * @summary Output Template
+     * @request POST:/api/manageTemplate/outputTemplate
+     */
+    manageTemplateControllerOutputTemplate: (
+      data: OutputTemplateDto,
+      params: RequestParams = {},
+    ) =>
+      this.request<boolean, void>({
+        path: `/api/manageTemplate/outputTemplate`,
+        method: "POST",
+        body: data,
+        type: ContentType.Json,
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Manage Template
+     * @name ManageTemplateControllerImportTemplate
+     * @summary Import Template
+     * @request POST:/api/manageTemplate/importTemplate
+     */
+    manageTemplateControllerImportTemplate: (
+      data: ImportTemplateDto,
+      params: RequestParams = {},
+    ) =>
+      this.request<boolean, void>({
+        path: `/api/manageTemplate/importTemplate`,
+        method: "POST",
+        body: data,
+        type: ContentType.FormData,
         ...params,
       }),
   };
