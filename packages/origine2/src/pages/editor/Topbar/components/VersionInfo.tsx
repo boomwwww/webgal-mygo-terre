@@ -18,6 +18,7 @@ const versionMap: Map<string, string> = new Map([
   ['index-089fab66.js', 'MyGO_v2.5'],
   ['index-e1b3c40e.js', 'MyGO_v3.0.0'],
   ['index-1b91f010.js', 'MyGO_v3.1.0'],
+  ['index-982c8eaa.js', 'MyGO_v3.1.1'],
 ]);
 
 const VersionInfo: React.FunctionComponent = () => {

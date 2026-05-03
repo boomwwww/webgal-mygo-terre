@@ -56,6 +56,14 @@ export default function Sidebar(props: ISidebarProps) {
     return resp.data as unknown as { name: string; dir: string }[];
   });
 
+  useEffect(() => {
+    const mygoTemplates = templatesResp.data?.filter((e) => e.name.toLocaleLowerCase().includes('mygo')) || [];
+    if (mygoTemplates[0]) {
+      const theMygoTemplate = getMaxVersionFromString(mygoTemplates.map(e => e.name));;
+      setTemplateDir(theMygoTemplate);
+    }
+  });
+
   const DEFAULT_OPTION = '__DEFAULT__';
   const defaultTemplateName = 'WebGAL Refine 2026';
 
