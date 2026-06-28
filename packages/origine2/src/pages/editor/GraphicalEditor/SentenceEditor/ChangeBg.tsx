@@ -23,6 +23,10 @@ export default function ChangeBg(props: ISentenceEditorProps) {
   const unlockOrder = useValue<number | string>(getArgByKey(props.sentence, "order") as number);
   const json = useValue<string>(getArgByKey(props.sentence, 'transform') as string);
   const duration = useValue<number | string>(getArgByKey(props.sentence, 'duration') as number);
+  const enterDuration = useValue<number | string>(getArgByKey(props.sentence, 'enterDuration') as number);
+  const exitDuration = useValue<number | string>(getArgByKey(props.sentence, 'exitDuration') as number);
+  const enterAnimation = useValue(getArgByKey(props.sentence, 'enter').toString() ?? "");
+  const exitAnimation = useValue(getArgByKey(props.sentence, 'exit').toString() ?? "");
   const ease = useValue(getArgByKey(props.sentence, 'ease').toString() ?? '');
   const ignoreDefault = useValue(getArgByKey(props.sentence, 'ignoreDefault') === true);
   const submit = () => {
@@ -52,6 +56,7 @@ export default function ChangeBg(props: ISentenceEditorProps) {
         {key: "ignoreDefault", value: ignoreDefault.value},
         {key: "next", value: isGoNext.value},
       ],
+      props.sentence.inlineComment,
     );
     props.onSubmit(submitString);
   };

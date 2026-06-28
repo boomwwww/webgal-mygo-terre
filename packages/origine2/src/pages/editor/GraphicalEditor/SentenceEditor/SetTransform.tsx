@@ -55,6 +55,7 @@ export default function SetTransform(props: ISentenceEditorProps) {
         { key: "ignoreDefault", value: ignoreDefault.value },
         { key: "next", value: isGoNext.value },
       ],
+      props.sentence.inlineComment,
     );
     props.onSubmit(submitString);
   };

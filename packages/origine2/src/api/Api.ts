@@ -127,8 +127,14 @@ export interface TemplateFontConfigDto {
   "font-family": string;
   /** The url of the font file */
   url: string;
-  /** The font format type */
-  type: string;
+  /** The font type used for @font-face format */
+  type:
+    | "truetype"
+    | "opentype"
+    | "woff"
+    | "woff2"
+    | "embedded-opentype"
+    | "svg";
 }
 
 export interface TemplateConfigDto {
@@ -197,6 +203,11 @@ export interface EditSceneDto {
   sceneData: string;
 }
 
+export interface UpdateAnimationTableDto {
+  /** The name of the game directory */
+  gameName: string;
+}
+
 export interface GameConfigDto {
   /** The name of the game */
   gameName: string;
@@ -235,6 +246,8 @@ export interface TemplateInfoDto {
   id?: string;
   /** The webgal version of the template */
   "webgal-version": string;
+  /** The font registrations of the template */
+  fonts?: TemplateFontConfigDto[];
   /** The dir of the template */
   dir: string;
   /** Whether the template is built in */
@@ -1032,6 +1045,26 @@ export class Api<
     ) =>
       this.request<void, void>({
         path: `/api/manageGame/editTextFile`,
+        method: "POST",
+        body: data,
+        type: ContentType.Json,
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Manage Game
+     * @name ManageGameControllerUpdateAnimationTable
+     * @summary Update Animation Table
+     * @request POST:/api/manageGame/updateAnimationTable
+     */
+    manageGameControllerUpdateAnimationTable: (
+      data: UpdateAnimationTableDto,
+      params: RequestParams = {},
+    ) =>
+      this.request<void, void>({
+        path: `/api/manageGame/updateAnimationTable`,
         method: "POST",
         body: data,
         type: ContentType.Json,

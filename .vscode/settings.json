@@ -1,11 +1,13 @@
 {
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.patterns": {
-    "package.json": "npm*,.npm*,yarn*,.yarn*,.editorconfig,LICENSE",
-    "README.md": "*.md",
+    "package.json": "npm*,.npm*,yarn*,.yarn*,.editorconfig",
+    "README.md": "*.md,LICENSE",
     ".gitignore": ".git*",
-    "release.sh": "*.sh",
-    "vite.config.ts": "*config.js,*config.json,*rc,.eslint*,eslint*,.prettier*,prettier*"
+    "release.sh": "*.sh,*.nsi,pr-check-linux.yml",
+    "vite.config.ts": "*config.js,*config.json,*rc,.eslint*,eslint*,.prettier*,prettier*",
+    "nest-cli.json": "standalone.js,intl-polyfill-loader.js,.eslintrc.js,.prettierrc",
+    "pkg-build.ts": "update*"
   },
   "oxc.enable": false
 }

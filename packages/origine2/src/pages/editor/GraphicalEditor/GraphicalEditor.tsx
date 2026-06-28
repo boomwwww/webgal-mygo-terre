@@ -91,7 +91,7 @@ export default function GraphicalEditor(props: IGraphicalEditorProps) {
         return existing && existing.content === content
           ? existing
           : {
-            id: crypto.randomUUID(),
+            id: createId(),
             content,
             show: existing?.show ?? true
           };

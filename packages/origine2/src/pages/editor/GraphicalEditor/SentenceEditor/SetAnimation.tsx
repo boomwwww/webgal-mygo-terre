@@ -31,7 +31,7 @@ export default function SetAnimation(props: ISentenceEditorProps) {
   const keep = useValue(getArgByKey(props.sentence, 'keep') === true);
   const parallel = useValue(getArgByKey(props.sentence, 'parallel') === true);
   const ignoreDefault = useValue(getArgByKey(props.sentence, 'ignoreDefault') === true);
-  
+
   const submit = () => {
     const submitString = combineSubmitString(
       props.sentence.commandRaw,
@@ -45,6 +45,7 @@ export default function SetAnimation(props: ISentenceEditorProps) {
         {key: "ignoreDefault", value: ignoreDefault.value},
         {key: "next", value: isGoNext.value},
       ],
+      props.sentence.inlineComment,
     );
     props.onSubmit(submitString);
   };

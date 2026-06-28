@@ -11,7 +11,7 @@
     "preview": "vite preview",
     "lint": "eslint src/** --fix",
     "openapi": "tsx openapi.ts",
-    "exact-i18n": "lingui extract",
+    "exact-i18n": "lingui extract --clean",
     "compile-i18n": "lingui compile --typescript"
   },
   "dependencies": {

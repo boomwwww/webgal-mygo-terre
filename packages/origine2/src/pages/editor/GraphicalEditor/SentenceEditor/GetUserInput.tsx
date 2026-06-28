@@ -37,6 +37,7 @@ export default function GetUserInput(props: ISentenceEditorProps) {
         {key: "ruleText", value: ruleText.value},
         {key: "ruleButtonText", value: ruleButtonText.value},
       ],
+      props.sentence.inlineComment,
     );
     props.onSubmit(submitString);
   };

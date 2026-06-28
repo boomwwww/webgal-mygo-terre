@@ -38,6 +38,7 @@ export default function SetTransition(props: ISentenceEditorProps) {
         {key: "target", value: target.value},
         {key: "ignoreDefault", value: ignoreDefault.value},
       ],
+      props.sentence.inlineComment,
     );
     props.onSubmit(submitString);
   };

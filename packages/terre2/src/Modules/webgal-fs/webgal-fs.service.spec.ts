@@ -5,6 +5,12 @@ import AdmZip = require('adm-zip');
 import { WebgalFsService } from './webgal-fs.service';
 
 describe('WebgalFsService', () => {
+  const testRoot = join(
+    process.cwd(),
+    'tmp',
+    'webgal-fs-service-spec',
+    `run-${Date.now()}`,
+  );
   let service: WebgalFsService;
 
   beforeEach(async () => {

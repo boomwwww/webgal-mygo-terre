@@ -33,6 +33,7 @@ export default function UnlockExtra(props: ISentenceEditorProps) {
         {key: "series", value: unlockSeries.value},
         {key: "order", value: unlockType.value === "unlockCg" ? unlockOrder.value : ""},
       ],
+      props.sentence.inlineComment,
     );
     props.onSubmit(submitString);
   };
@@ -64,8 +65,8 @@ export default function UnlockExtra(props: ISentenceEditorProps) {
               fileName.set(newFile?.name ?? "");
               submit();
             }}
-            extNames={unlockType.value === "unlockCg" 
-              ? extNameMap.get('image') 
+            extNames={unlockType.value === "unlockCg"
+              ? extNameMap.get('image')
               : extNameMap.get('audio')}
           />
         </>

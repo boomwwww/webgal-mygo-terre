@@ -53,10 +53,6 @@ import Wait from "@/pages/editor/GraphicalEditor/SentenceEditor/Wait";
 import BasicCommands from "@/pages/editor/GraphicalEditor/SentenceEditor/BasicCommands";
 import { t } from "@lingui/macro";
 
-type SentenceEditorType = commandType | string;
-const CALL_STEAM_COMMAND_RAW = "callSteam";
-const callSteamType: SentenceEditorType = (commandType as unknown as Record<string, SentenceEditorType>)[CALL_STEAM_COMMAND_RAW] ?? CALL_STEAM_COMMAND_RAW;
-
 export interface ISentenceEditorProps {
   sentence: ISentence;
   onSubmit: (newSentence: string) => void;
@@ -67,8 +63,7 @@ export interface ISentenceEditorProps {
 }
 
 export interface ISentenceEditorConfig {
-  type: SentenceEditorType,
-  commandRaw?: string,
+  type: commandType,
   title: () => string,
   initialText: () => string,
   component: FC<ISentenceEditorProps>,

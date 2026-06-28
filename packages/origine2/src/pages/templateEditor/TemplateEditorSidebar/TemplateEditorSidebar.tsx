@@ -53,7 +53,7 @@ export default function TemplateEditorSidebar() {
     if (templateConfig && !templateConfig.id) {
       const newTemplateConfig = {
         ...templateConfig,
-        id: crypto.randomUUID(),
+        id: createId(),
       };
       api.manageTemplateControllerUpdateTemplateConfig({templateDir, newTemplateConfig});
       mutate(`/templateConfig/${templateDir}`);

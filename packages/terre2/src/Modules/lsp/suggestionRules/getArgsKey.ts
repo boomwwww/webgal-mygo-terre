@@ -29,6 +29,8 @@ export function getArgsKey(
         nextKey,
         continueKey,
         durationKey,
+        enterDurationKey,
+        exitDurationKey,
         transformKey,
         unlocknameKey,
         seriesKey,
@@ -66,6 +68,7 @@ export function getArgsKey(
         easeKey,
         blinkKey,
         focusKey,
+        blendModeKey,
       ];
     }
     case commandType.bgm: {
@@ -294,6 +297,27 @@ const durationKey: CompletionItem = {
   detail: '持续时间',
   documentation: markdown(`
 这个时间片的持续时间，单位为毫秒(ms)
+  `),
+};
+
+const enterDurationKey: CompletionItem = {
+  kind: CompletionItemKind.Constant,
+  label: 'enterDuration',
+  insertText: 'enterDuration=',
+  detail: '入场时长',
+  documentation: markdown(`
+入场动画的持续时间，单位为毫秒(ms)。
+若同时设置 \`duration\`，则此项优先生效。
+  `),
+};
+
+const exitDurationKey: CompletionItem = {
+  kind: CompletionItemKind.Constant,
+  label: 'exitDuration',
+  insertText: 'exitDuration=',
+  detail: '退场时长',
+  documentation: markdown(`
+退场动画的持续时间，单位为毫秒(ms)。
   `),
 };
 
@@ -532,6 +556,24 @@ const zIndexKey: CompletionItem = {
 \`\`\`
 changeFigure:xxx.png -id=xxx -zIndex=0;
 changeFigure:yyy.png -id=yyy -zIndex=1;
+\`\`\`
+  `),
+};
+
+const blendModeKey: CompletionItem = {
+  kind: CompletionItemKind.Constant,
+  label: 'blendMode',
+  insertText: 'blendMode=',
+  detail: '混合模式',
+  documentation: markdown(`
+设置立绘的混合模式，可用的混合模式有
+- normal (默认值, 透明度混合)
+- add (线性减淡)
+- multiply (正片叠底)
+- screen (滤色)
+
+\`\`\`
+changeFigure:xxx.png -blendMode=add;
 \`\`\`
   `),
 };
@@ -939,7 +981,7 @@ const enterAnimationKey: CompletionItem = {
   insertText: 'enter=',
   detail: '入场动画',
   documentation: markdown(`
-设置入场动画
+设置入场动画（来自 \`game/animation\` 目录，通常不带 \`.json\` 后缀）
   `),
 };
 
@@ -949,7 +991,7 @@ const exitAnimationKey: CompletionItem = {
   insertText: 'exit=',
   detail: '退场动画',
   documentation: markdown(`
-设置退场动画
+设置退场动画（来自 \`game/animation\` 目录，通常不带 \`.json\` 后缀）
   `),
 };
 
