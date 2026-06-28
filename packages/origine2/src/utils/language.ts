@@ -13,6 +13,9 @@ function normalizeBrowserLanguage(language: string): EditorLanguage | undefined 
   if (normalizedLanguage === 'ja' || normalizedLanguage.startsWith('ja-')) {
     return 'ja';
   }
+  if (normalizedLanguage === 'ko' || normalizedLanguage.startsWith('ko-')) {
+    return 'ko';
+  }
   if (normalizedLanguage === 'en' || normalizedLanguage.startsWith('en-')) {
     return 'en';
   }
@@ -38,4 +41,18 @@ export function getDefaultLanguage(): EditorLanguage {
   }
 
   return defaultLanguage;
+}
+
+export function getMigrationGuideUrl(language: EditorLanguage): string {
+  switch (language) {
+  case 'en':
+    return 'https://docs.openwebgal.com/en/migration.html';
+  case 'ja':
+    return 'https://docs.openwebgal.com/ja/migration.html';
+  case 'ko':
+    return 'https://docs.openwebgal.com/en/migration.html';
+  case 'zhCn':
+  default:
+    return 'https://docs.openwebgal.com/migration.html';
+  }
 }

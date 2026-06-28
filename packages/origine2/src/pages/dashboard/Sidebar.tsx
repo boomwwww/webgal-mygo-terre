@@ -2,7 +2,7 @@ import GameElement from "./GameElement";
 import styles from "./sidebar.module.scss";
 import {useEffect, useState} from "react";
 import {
-  Button, Dropdown,
+  Button, Checkbox, Dropdown,
   Input,
   Option,
   Popover,
@@ -28,6 +28,7 @@ interface ISidebarProps {
 
 const AddIcon = bundleIcon(AddFilled, AddRegular);
 const ArrowSyncIcon = bundleIcon(ArrowSyncFilled, ArrowSyncRegular);
+const DEFAULT_TEMPLATE_DIR = 'WebGAL_Default_Template';
 
 export default function Sidebar(props: ISidebarProps) {
 
@@ -36,6 +37,7 @@ export default function Sidebar(props: ISidebarProps) {
   const [gameDir, setGameDir] = useState(t`新的游戏`);
   const [derivative, setDerivative] = useState<string | undefined>(undefined);
   const [templateDir, setTemplateDir] = useState<string | undefined>(undefined);
+  const [ignoreTemplate, setIgnoreTemplate] = useState<boolean>(false);
 
   // 可用的衍生版
   const derivativeEnginesResp = useSWR('derivativeEngines', async () => {
@@ -93,7 +95,7 @@ export default function Sidebar(props: ISidebarProps) {
       setTemplateDir(elem.optionValue === DEFAULT_OPTION ? undefined : elem.optionValue);
     }}>
     <Option key="default-template" value={DEFAULT_OPTION}>{defaultTemplateName}</Option>
-    {(templatesResp.data ?? []).map(e =>
+    {(templatesResp.data ?? []).filter(e => e.dir !== DEFAULT_TEMPLATE_DIR).map(e =>
       <Option key={e.dir} value={e.dir}>{e.name}</Option>
     )}
   </Dropdown>;
@@ -105,6 +107,7 @@ export default function Sidebar(props: ISidebarProps) {
         gameDir,
         derivative,
         templateDir,
+        ignoreTemplate,
       });
       setCreateGameFormOpen(false);
       setGameName(t`新的游戏`);
@@ -148,8 +151,17 @@ export default function Sidebar(props: ISidebarProps) {
               />
               {t`选择游戏引擎版本`}
               {selector}
-              {t`选择应用的模板`}
-              {selectorTemplate}
+              <Checkbox
+                checked={ignoreTemplate}
+                onChange={(_, data) => setIgnoreTemplate(!!data.checked)}
+                label={t`不应用模板`}
+              />
+              {!ignoreTemplate && (
+                <>
+                  {t`选择应用的模板`}
+                  {selectorTemplate}
+                </>
+              )}
               <Button
                 appearance='primary'
                 disabled={

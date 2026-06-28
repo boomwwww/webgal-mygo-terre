@@ -16,6 +16,11 @@ export class CreateGameDto {
     required: false,
   })
   templateDir?: string;
+  @ApiProperty({
+    description: 'Whether to ignore the template when creating the game',
+    required: false,
+  })
+  ignoreTemplate?: boolean;
 }
 
 export class EditFileNameDto {
@@ -81,7 +86,11 @@ export class GameInfoDto {
   dir: string;
   @ApiProperty({ description: 'The cover of the game' })
   cover: string;
-  @ApiProperty({ description: 'The template config of the game' })
+  @ApiProperty({
+    description: 'The template config of the game',
+    nullable: true,
+    type: () => TemplateConfigDto,
+  })
   template: TemplateConfigDto | null;
 }
 
