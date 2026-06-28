@@ -1,17 +1,18 @@
+#
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2024-04-03 21:59+0800\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Generator: @lingui/cli\n"
-"Language: en\n"
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-03 21:59+0800\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
+"X-Generator: @lingui/cli\n"
 
 #: src/pages/editor/GraphicalEditor/SentenceEditor/index.tsx:228
 msgid ";注释"
@@ -150,7 +151,9 @@ msgstr "RGB film"
 msgid "setAnimation:选择动画文件;"
 msgstr "setAnimation: Choose a file of animation;"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/index.tsx:212
+msgid "setTempAnimation:[{\"duration\":0},{\"duration\":500}];"
+msgstr "setTempAnimation:[{\"duration\":0},{\"duration\":500}];"
+
 msgid "setTextbox:hide;"
 msgstr "setTextbox:hide;"
 
@@ -166,7 +169,9 @@ msgstr "setTransition:;"
 msgid "Spine 动画"
 msgstr "Spine animation"
 
-#: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:138
+msgid "Spine 皮肤"
+msgstr "Spine Skin"
+
 msgid "Steam AppID"
 msgstr "Steam AppID"
 
@@ -185,11 +190,6 @@ msgstr "unlockBgm:;"
 #: src/pages/editor/GraphicalEditor/SentenceEditor/index.tsx:196
 msgid "unlockCg:;"
 msgstr "unlockCg:;"
-
-#: src/pages/dashboard/Sidebar.tsx:70
-#: src/pages/dashboard/Sidebar.tsx:75
-msgid "WebGAL Classic"
-msgstr "WebGAL Classic"
 
 #: src/pages/dashboard/Sidebar.tsx:60
 #: src/pages/dashboard/Sidebar.tsx:64
@@ -305,17 +305,14 @@ msgstr "Figure at center"
 msgid "为当前的舞台添加特殊效果"
 msgstr "Apply the special effect for stage"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/index.tsx:111
-msgid "为立绘或背景图片设置动画效果"
-msgstr "Set the animation effect for the figure or background"
+msgid "为立绘或背景图片设置单段动画效果"
+msgstr "Set single animation for figure or background"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/index.tsx:240
-#~ msgid "为立绘或背景图片设置效果"
-#~ msgstr "Set effect for figure or background"
+msgid "为立绘或背景图片设置多段动画效果"
+msgstr "Set multiple animations for figure or background"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/index.tsx:247
-msgid "为立绘或背景图片设置效果或变换"
-msgstr "Setting effects or transformations for a figure or background image."
+msgid "为立绘或背景图片调用动画效果"
+msgstr "Call animation for figure or background"
 
 #: src/pages/templateEditor/TemplateGraphicalEditor/TemplateGraphicalEditor.tsx:60
 msgid "主要样式"
@@ -668,7 +665,9 @@ msgstr "Bold"
 msgid "动画"
 msgstr "Animation"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:533
+msgid "动画帧控制"
+msgstr "Frame control"
+
 msgid "半张嘴"
 msgstr "Half open mouth"
 
@@ -676,7 +675,9 @@ msgstr "Half open mouth"
 msgid "单位毫秒。 0~ 有效"
 msgstr "Unit milliseconds. 0~ valid"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/index.tsx:227
+msgid "单段动画"
+msgstr "Single animation"
+
 msgid "单行注释"
 msgstr "Single line comment"
 
@@ -748,7 +749,9 @@ msgstr "Right side figure"
 msgid "右对齐"
 msgstr "Right Align"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/index.tsx:119
+msgid "向上添加"
+msgstr "Add above"
+
 msgid "启动、切换或停止背景音乐的播放"
 msgstr "Start, switch or stop the playback of background music"
 
@@ -790,7 +793,9 @@ msgstr "Graphical editor"
 msgid "图片"
 msgstr "Image"
 
-#: src/components/IconCreator/IconCreator.tsx:614
+msgid "图片差分"
+msgstr "Image differential"
+
 msgid "圆形"
 msgstr "Circle"
 
@@ -863,7 +868,9 @@ msgstr "Outer Text"
 msgid "外边距"
 msgstr "Margin"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/Say.tsx:61
+msgid "多段动画"
+msgstr "Multiple animations"
+
 msgid "大"
 msgstr "Large"
 
@@ -963,8 +970,9 @@ msgstr "Text in Textbox"
 msgid "对话框标题"
 msgstr "Dialog title"
 
-#: src/pages/editor/Topbar/tabs/Export/ExportTab.tsx:80
-#: src/pages/editor/Topbar/Topbar.tsx:107
+msgid "导入模板"
+msgstr "Import template"
+
 msgid "导出"
 msgstr "Export"
 
@@ -992,10 +1000,9 @@ msgstr "Export Failed!"
 msgid "导出成功！"
 msgstr "Export Success!"
 
-#: src/pages/templateEditor/TemplateEditorSidebar/TemplateEditorSidebar.tsx:134
-#: src/pages/templateEditor/TemplateEditorSidebar/TemplateEditorSidebar.tsx:135
-#: src/pages/templateEditor/TemplateEditorSidebar/TemplateEditorSidebar.tsx:141
-#: src/pages/templateEditor/TemplateEditorSidebar/TemplateEditorSidebar.tsx:156
+msgid "导出模板"
+msgstr "Export template"
+
 msgid "将当前模板应用到选定的游戏"
 msgstr "Apply the current template to selected games"
 
@@ -1282,17 +1289,15 @@ msgstr "Play sound effect"
 msgid "播放视频"
 msgstr "Play video"
 
-#: src/pages/editor/GraphicalEditor/utils/useEffectEditorConfig.ts:110
+msgid "操作"
+msgstr "Operation"
+
 msgid "故障电影滤镜"
 msgstr "Glitch film filter"
 
 #: src/pages/editor/GraphicalEditor/utils/useEffectEditorConfig.ts:117
 msgid "效果"
 msgstr "Effect"
-
-#: src/pages/editor/GraphicalEditor/SentenceEditor/index.tsx:243
-msgid "效果与变换"
-msgstr "Effects and Transformations"
 
 #: src/pages/editor/GraphicalEditor/SentenceEditor/index.tsx:187
 msgid "效果声音"
@@ -1337,12 +1342,15 @@ msgstr "Sound effect file"
 msgid "文件名"
 msgstr "File name"
 
-#: src/components/Assets/Assets.tsx:492
+msgid "文件名不可包含特殊符号"
+msgstr "File name cannot contain special characters"
+
 msgid "文件大小"
 msgstr "File size"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/Intro.tsx:240
-#: src/pages/editor/GraphicalEditor/SentenceEditor/Say.tsx:288
+msgid "文件路径含有非法字符"
+msgstr "File path contains illegal characters"
+
 msgid "文字大小"
 msgstr "Font size"
 
@@ -1540,7 +1548,9 @@ msgstr "Show preview window"
 msgid "普通对话"
 msgstr "General dialogue"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/Say.tsx:29
+msgid "更多选项"
+msgstr "More options"
+
 msgid "未指定"
 msgstr "Unspecified"
 
@@ -1595,7 +1605,15 @@ msgstr "Title Button List"
 msgid "标题按钮文字"
 msgstr "Title Button Text"
 
-#: src/pages/editor/Topbar/tabs/GameConfig/GameConfig.tsx:147
+msgid "标题按钮文字内层"
+msgstr "Title Button Text Inner"
+
+msgid "标题按钮文字外层"
+msgstr "Title Button Text Outer"
+
+msgid "标题按钮禁用"
+msgstr "Title Button Disabled"
+
 msgid "标题背景图片"
 msgstr "Title background image"
 
@@ -1627,8 +1645,12 @@ msgstr "Template name"
 msgid "模板名称不能为空"
 msgstr "Template name cannot be empty"
 
-#: src/pages/dashboard/TemplateSidebar.tsx:69
-#: src/pages/dashboard/TemplateSidebar.tsx:75
+msgid "模板导入失败，请检查是否存在重名或模板是否完整"
+msgstr "Template import failed. Check whether a template with the same name exists or the template is complete."
+
+msgid "模板导入成功"
+msgstr "Template imported successfully"
+
 msgid "模板目录"
 msgstr "Template directory"
 
@@ -1677,7 +1699,9 @@ msgstr "French"
 msgid "泛光"
 msgstr "Bloom"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:638
+msgid "注视"
+msgstr "Focus"
+
 msgid "注视点X(-1~1)"
 msgstr "Focus X (-1~1)"
 
@@ -1727,8 +1751,9 @@ msgstr "Add a line comment"
 msgid "添加一首音乐到音乐鉴赏界面"
 msgstr "Add a music to music appreciation gallery"
 
-#: src/pages/templateEditor/TemplateGraphicalEditor/WebgalClassEditor/AddProperty.tsx:62
-#: src/pages/templateEditor/TemplateGraphicalEditor/WebgalClassEditor/index.tsx:129
+msgid "添加动画帧"
+msgstr "Add animation frame"
+
 msgid "添加属性"
 msgstr "Add Property"
 
@@ -1755,9 +1780,9 @@ msgstr "Add statement"
 msgid "清除当前舞台的特殊效果"
 msgstr "Clear special effects of current stage"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/index.tsx:139
-#: src/pages/editor/GraphicalEditor/SentenceEditor/PixiPerform.tsx:36
-#: src/pages/editor/GraphicalEditor/SentenceEditor/PixiPerform.tsx:43
+msgid "清除提示"
+msgstr "Clear tip"
+
 msgid "清除特效"
 msgstr "Clear effects"
 
@@ -1841,7 +1866,9 @@ msgstr "No file currently open"
 msgid "相对"
 msgstr "Relative"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/ChangeFigure.tsx:588
+msgid "眨眼"
+msgstr "Blink"
+
 msgid "眨眼间隔(毫秒)"
 msgstr "Blink interval (ms)"
 
@@ -2034,7 +2061,9 @@ msgstr "Ease type"
 msgid "编辑图标"
 msgstr "Edit icon"
 
-#: src/pages/dashboard/TemplateElement.tsx:82
+msgid "编辑更多选项"
+msgstr "Edit more options"
+
 msgid "编辑模板"
 msgstr "Edit template"
 
@@ -2264,10 +2293,6 @@ msgstr "Unlock appreciation type"
 msgid "设置"
 msgstr "Settings"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/index.tsx:107
-msgid "设置动画"
-msgstr "Set animation"
-
 #: src/pages/editor/GraphicalEditor/SentenceEditor/index.tsx:236
 #~ msgid "设置效果"
 #~ msgstr "Set effect"
@@ -2356,7 +2381,9 @@ msgstr "Call/Change Scene"
 msgid "调用一段场景文件，在结束后返回父场景"
 msgstr "Call a scene file, return to parent scene after it ends"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/index.tsx:155
+msgid "调用动画"
+msgstr "Call animation"
+
 msgid "调用场景"
 msgstr "Call Scene"
 
@@ -2583,7 +2610,9 @@ msgstr "Selection Button Wrapper"
 msgid "透明度（0-1）"
 msgstr "Opacity (0-1)"
 
-#: src/pages/editor/GraphicalEditor/SentenceEditor/index.tsx:175
+msgid "通用"
+msgstr "General"
+
 msgid "通过选项进入不同的场景"
 msgstr "Enter different scenes through options"
 
@@ -2805,7 +2834,9 @@ msgstr "Default 50"
 msgid "默认语言"
 msgstr "Default Language"
 
-#: src/pages/templateEditor/TemplateGraphicalEditor/withStateEditor/SingleStateEditor.tsx:8
+msgid "默认选项"
+msgstr "Default option"
+
 msgid "鼠标悬浮样式"
 msgstr "Mouse hover style"
 

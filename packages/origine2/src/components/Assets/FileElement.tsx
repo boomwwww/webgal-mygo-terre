@@ -12,7 +12,7 @@ const RenameIcon = bundleIcon(RenameFilled, RenameRegular);
 const DeleteIcon = bundleIcon(DeleteFilled, DeleteRegular);
 
 export default function FileElement(
-  { 
+  {
     rootPath,
     file,
     type,
@@ -104,7 +104,7 @@ export default function FileElement(
           {
             !file.isDir && (
               is_picture(file.extName) && type === 'grid'
-                ? <img src={filePath} draggable='false' style={{ width: '100%', height: '100%', objectFit: 'contain',}}/> 
+                ? <img src={filePath} draggable='false' style={{ width: '100%', height: '100%', objectFit: 'contain',}}/>
                 : <IconWrapper src={getFileIcon(file.name)} size={ type === 'grid' ? 44 : 22} iconSize={type === 'grid' ? 40 : 20} />
             )
           }
@@ -136,56 +136,63 @@ export default function FileElement(
           <div className={styles.fileAction}>
             {
               !isProtected &&
-        <>
-          <Popover withArrow onOpenChange={() => newFileName.set(file.name)}>
-            <PopoverTrigger>
-              <Tooltip content={t`重命名`} relationship="label" positioning="below">
-                <Button
-                  icon={<RenameIcon style={{ width: '16px' }} />}
-                  size='small'
-                  appearance='subtle'
-                  onClick={(e) => e.stopPropagation()}
-                />
-              </Tooltip>
-            </PopoverTrigger>
-            <PopoverSurface
-              onClick={(e) => e.stopPropagation()}
-              onKeyDown={(e) => {
-                e.stopPropagation();
-                if((e.key === 'Enter') && !checkHasFile(newFileName.value)){
-                  handleRenameFile(filePath, newFileName.value.trim());
-                };
-              }}
-            >
-              <div style={{ display: "flex", flexFlow: "column", gap: "16px" }}>
-                <Subtitle2>{t`重命名`}</Subtitle2>
-                <Tooltip
-                  content={{ children: t`已存在文件或文件夹 ${newFileName.value}，请输入其他名称`, style: { color: 'var(--danger)' } }}
-                  relationship="description"
-                  visible={checkHasFile(newFileName.value) && newFileName.value !== file.name}
-                  positioning="below"
-                >
-                  <Input
-                    value={newFileName.value}
-                    className={checkHasFile(newFileName.value) && newFileName.value !== file.name ? styles.inputDanger : ''}
-                    onFocus={ev => {
-                      const el = ev.target;
-                      const dotPosition = el.value.indexOf('.');
-                      el?.setSelectionRange(0, dotPosition === -1 ? el.value.length : dotPosition);
+              <>
+                <Popover withArrow onOpenChange={() => newFileName.set(file.name)}>
+                  <PopoverTrigger>
+                    <Tooltip content={t`重命名`} relationship="label" positioning="below">
+                      <Button
+                        icon={<RenameIcon style={{ width: '16px' }} />}
+                        size='small'
+                        appearance='subtle'
+                        onClick={(e) => e.stopPropagation()}
+                      />
+                    </Tooltip>
+                  </PopoverTrigger>
+                  <PopoverSurface
+                    onClick={(e) => e.stopPropagation()}
+                    onKeyDown={(e) => {
+                      e.stopPropagation();
+                      if ((e.key === 'Enter') && !(newFileName.value.trim() === '' || !isAccessible || checkHasFile(newFileName.value) && newFileName.value !== file.name)) {
+                        handleRenameFile(filePath, newFileName.value.trim());
+                      };
                     }}
-                    onChange={(_, data) => {
-                      newFileName.set(data.value ?? "");
-                    }}
-                  />
-                </Tooltip>
-                <Button
-                  appearance="primary"
-                  disabled={newFileName.value.trim() === '' || checkHasFile(newFileName.value) && newFileName.value !== file.name}
-                  onClick={() => handleRenameFile(filePath, newFileName.value.trim())}
-                >{t`重命名`}</Button>
-              </div>
-            </PopoverSurface>
-          </Popover>
+                  >
+                    <div style={{ display: "flex", flexFlow: "column", gap: "16px" }}>
+                      <Subtitle2>{t`重命名`}</Subtitle2>
+                      <Tooltip
+                        content={{ children: `${t`文件名不可包含特殊符号`}: '/\\:*#%&?@"<>|'`, style: { color: 'var(--danger)' } }}
+                        relationship="inaccessible"
+                        visible={!isAccessible}
+                        positioning="below"
+                      >
+                        <Tooltip
+                          content={{ children: t`已存在文件或文件夹 ${newFileName.value}，请输入其他名称`, style: { color: 'var(--danger)' } }}
+                          relationship="description"
+                          visible={checkHasFile(newFileName.value) && newFileName.value !== file.name}
+                          positioning="below"
+                        >
+                          <Input
+                            value={newFileName.value}
+                            className={checkHasFile(newFileName.value) && newFileName.value !== file.name ? styles.inputDanger : ''}
+                            onFocus={ev => {
+                              const el = ev.target;
+                              const dotPosition = el.value.indexOf('.');
+                              el?.setSelectionRange(0, dotPosition === -1 ? el.value.length : dotPosition);
+                            }}
+                            onChange={(_, data) => {
+                              newFileName.set(data.value ?? "");
+                            }}
+                          />
+                        </Tooltip>
+                      </Tooltip>
+                      <Button
+                        appearance="primary"
+                        disabled={newFileName.value.trim() === '' || !isAccessible || checkHasFile(newFileName.value) && newFileName.value !== file.name}
+                        onClick={() => handleRenameFile(filePath, newFileName.value.trim())}
+                      >{t`重命名`}</Button>
+                    </div>
+                  </PopoverSurface>
+                </Popover>
 
           <Popover withArrow>
             <PopoverTrigger>
