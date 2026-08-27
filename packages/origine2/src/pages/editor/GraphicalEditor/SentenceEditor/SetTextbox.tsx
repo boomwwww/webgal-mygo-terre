@@ -14,13 +14,14 @@ export default function SetTextbox(props: ISentenceEditorProps) {
       isHideTextbox.value ? "hide" : "on",
       props.sentence.args,
       [],
+      props.sentence.inlineComment,
     );
     props.onSubmit(submitString);
   };
 
   return <div className={styles.sentenceEditorContent}>
     <div className={styles.editItem}>
-      <CommonOptions key="isNoDialog" title={t`隐藏文本框`}>
+      <CommonOptions key="isNoDialog" title={t`文本框显示状态`}>
         <TerreToggle title="" onChange={(newValue) => {
           isHideTextbox.set(newValue);
           submit();

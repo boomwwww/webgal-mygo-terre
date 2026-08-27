@@ -1,6 +1,6 @@
 {
   "name": "webgal-terre",
-  "version": "4.5.17",
+  "version": "4.6.1",
   "private": true,
   "scripts": {
     "dev": "concurrently \"yarn dev:terre\" \"yarn dev:origine\" \"yarn dev:start-dev-server\"",
@@ -16,6 +16,7 @@
   "workspaces": {
     "packages": [
       "packages/dev-server",
+      "packages/editor-preview-protocol",
       "packages/terre2",
       "packages/origine2"
     ],
@@ -37,5 +38,8 @@
   "resolutions": {
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0"
+  },
+  "dependencies": {
+    "@types/react": "^18.0.0"
   }
 }

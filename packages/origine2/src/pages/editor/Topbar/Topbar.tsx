@@ -35,6 +35,8 @@ import { goTo } from '@/router';
 import {t} from "@lingui/macro";
 import BackDashboardButton from "@/pages/editor/Topbar/components/BackDashboardButton";
 import { Github, Platte } from "@icon-park/react";
+import { AppSettingsButton } from "@/components/AppSettings/AppSettingsDialog";
+import VersionInfo from "@/pages/editor/Topbar/components/VersionInfo";
 
 const PaddingTopIcon = bundleIcon(PaddingTop24Filled, PaddingTop24Regular);
 const EyeOffIcon = bundleIcon(EyeOff24Filled, EyeOff24Regular);
@@ -114,6 +116,7 @@ export default function TopBar() {
       <div className={styles.topbar_gamename}>
         {gameDir}
       </div>
+      <VersionInfo/>
       <Menu>
         <MenuTrigger>
           <ToolbarButton
@@ -157,6 +160,7 @@ export default function TopBar() {
           </MenuList>
         </MenuPopover>
       </Menu>
+      <AppSettingsButton appearance="subtle" />
       <ToolbarButton
         icon={<Github />}
         onClick={() => window.open("https://github.com/OpenWebGAL/WebGAL_Terre", "_blank")}

@@ -24,6 +24,10 @@ export interface IFile {
   lastModified?: number;
 }
 
+interface IAssetsReadResponse {
+  dirInfo?: IFile[];
+}
+
 export type IFileConfig = Map<
   string,
   {
@@ -37,6 +41,7 @@ export type IFileConfig = Map<
 export interface IFileFunction {
   open?: (file: IFile, type: 'scene' | 'asset') => Promise<void>,
   create?: (source: string, name: string, type: 'file' | 'dir') => Promise<void>,
+  backup?: (source: string) => Promise<void>,
   rename?: (source: string, newName: string) => Promise<void>,
   delete?: (source: string) => Promise<void>,
 };
@@ -96,9 +101,27 @@ export default function Assets(
   const extNames = extNameTypes?.length ? extNameTypes.map((item) => extNameMap.get(item)).flat() : allowedExtNames ?? [];
   const filterText = useValue('');
 
-  const cols = useValue(1);
-
   const scrollRef = useRef<FixedSizeList | null>(null);
+  const colsRef = useRef(1);
+
+  const normalizePath = (path: string) => path.replace(/\\/g, '/');
+  const animationRootPath = useMemo(() => normalizePath([...rootPath, 'animation'].join('/')), [rootPath]);
+  const animationGameDir = useMemo(() => (rootPath[0] === 'games' ? rootPath[1] : ''), [rootPath]);
+
+  const updateAnimationTable = async () => {
+    if (!animationGameDir) return;
+    try {
+      await api.manageGameControllerUpdateAnimationTable({ gameName: animationGameDir });
+    } catch (_) {
+      return;
+    }
+  };
+
+  const isInAnimationDirectory = () => {
+    if (!animationGameDir) return false;
+    const normalized = normalizePath(currentFullPath.join('/'));
+    return normalized === animationRootPath || normalized.startsWith(`${animationRootPath}/`);
+  };
 
   const scrollToIndex = (goToIndex: number) => {
     if (scrollRef?.current) {
@@ -108,10 +131,10 @@ export default function Assets(
 
   const assetsFetcher = async () => {
     const res = await api.assetsControllerReadAssets(currentFullPath.join('/'));
-    const data = res.data as unknown as object;
+    const data = res.data as unknown as IAssetsReadResponse;
     const path = currentPath.value;
-    if ('dirInfo' in data && data.dirInfo) {
-      const dirInfo = (data.dirInfo as IFile[]).map((item) => ({ ...item, path: [...path, item.name].join('/') }));
+    if (Array.isArray(data.dirInfo)) {
+      const dirInfo = data.dirInfo.map((item) => ({ ...item, path: [...path, item.name].join('/') }));
       return dirInfo.filter(e => e.name !== '.gitkeep');
     } else return [];
   };
@@ -176,17 +199,25 @@ export default function Assets(
   );
 
   // 自动滚动
-  useMemo(
+  useEffect(
     () => {
       const index = sortedFiles.findIndex(item => item.path === lastPath.value.join('/'));
-      setTimeout(() => {
-        scrollToIndex(Math.ceil(index / cols.value));
+      const timer = setTimeout(() => {
+        scrollToIndex(Math.max(0, Math.floor(index / colsRef.current)));
       }, 100);
+      return () => clearTimeout(timer);
     },
-    [lastPath.value]
+    [lastPath.value, sortedFiles]
   );
 
-  const handleRefresh = () => mutate(currentFullPath.join('/'));
+  const handleRefresh = () => {
+    const swrKey = currentFullPath.join('/');
+    if (isInAnimationDirectory()) {
+      updateAnimationTable().finally(() => mutate(swrKey));
+      return;
+    }
+    mutate(swrKey);
+  };
   const handleOpenFolder = () => api.assetsControllerOpenDict(currentFullPath.join('/'));
   const handleBack = () => {
     if(!isBasePath) {
@@ -216,6 +247,12 @@ export default function Assets(
   const handleCreateNewFolder = async (source: string, name: string) => {
     await api.assetsControllerCreateNewFolder({ source, name });
     fileFunction?.create && await fileFunction.create(source, name, 'dir');
+    handleRefresh();
+  };
+
+  const handleBackupFile = async (source: string) => {
+    await api.assetsControllerCopyFileWithIncrement({ source });
+    fileFunction?.backup && await fileFunction.backup(source);
     handleRefresh();
   };
 
@@ -334,7 +371,7 @@ export default function Assets(
               }}
             >
               <PopoverTrigger>
-                <Tooltip content={t`新建文件`} relationship="label" positioning="below"> 
+                <Tooltip content={t`新建文件`} relationship="label" positioning="below">
                   <Button icon={<DocumentAddIcon />} size='small' />
                 </Tooltip>
               </PopoverTrigger>
@@ -393,7 +430,7 @@ export default function Assets(
               }}
             >
               <PopoverTrigger>
-                <Tooltip content={t`新建文件夹`} relationship="label" positioning="below"> 
+                <Tooltip content={t`新建文件夹`} relationship="label" positioning="below">
                   <Button icon={<FolderAddIcon />} size='small' />
                 </Tooltip>
               </PopoverTrigger>
@@ -442,14 +479,18 @@ export default function Assets(
               onOpenChange={() => uploadAssetPopoverOpen.set(!uploadAssetPopoverOpen.value)}
             >
               <PopoverTrigger>
-                <Tooltip content={t`上传资源`} relationship="label" positioning="below"> 
+                <Tooltip content={t`上传资源`} relationship="label" positioning="below">
                   <Button icon={<ArrowExportUpIcon />} size='small' />
                 </Tooltip>
               </PopoverTrigger>
               <PopoverSurface>
                 <div style={{ display: "flex", flexFlow: "column", gap: "16px" }}>
                   <Subtitle1>{t`上传资源`}</Subtitle1>
-                  <FileUploader onUpload={handleRefresh} targetDirectory={currentFullPath.join('/')} uploadUrl="/api/assets/upload" />
+                  <FileUploader
+                    onUpload={handleRefresh}
+                    targetDirectory={currentFullPath.join('/')}
+                    uploadUrl="/api/assets/upload"
+                  />
                 </div>
               </PopoverSurface>
             </Popover>
@@ -541,15 +582,15 @@ export default function Assets(
               ({ height, width } : { height: number, width: number }) => {
                 const gridCols = Math.max(1, Math.floor(width / 96));
                 const listCols = Math.max(1, Math.floor(width / 192));
-
-                viewType === 'grid' ? cols.set(gridCols) : cols.set(listCols);
+                const columnCount = viewType === 'grid' ? gridCols : listCols;
+                colsRef.current = columnCount;
 
                 const rowRenderer = ({index, style}: { index: number, style: CSSProperties }) => {
                   return (
-                    <div style={{...style, display: 'grid', gridTemplateColumns: `repeat(${cols.value}, 1fr)`}}>
+                    <div style={{...style, display: 'grid', gridTemplateColumns: `repeat(${columnCount}, 1fr)`}}>
                       {
-                        Array.from({ length: cols.value }).map((_, i) => {
-                          const fileIndex = index * cols.value + i;
+                        Array.from({ length: columnCount }).map((_, i) => {
+                          const fileIndex = index * columnCount + i;
                           if (fileIndex >= sortedFiles.length) return null;
                           return (
                             <FileElement
@@ -561,13 +602,14 @@ export default function Assets(
                               desc={fileConfig?.get(sortedFiles[fileIndex].path)?.desc ?? undefined}
                               isProtected={fileConfig?.get(sortedFiles[fileIndex].path)?.isProtected ?? isProtected}
                               handleOpenFile={handleOpenFile}
+                              handleBackupFile={handleBackupFile}
                               handleRenameFile={handleRenameFile}
                               handleDeleteFile={handleDeleteFile}
                               checkHasFile={checkHasFile}
                             />
                           );
                         })
-                      }     
+                      }
                     </div>
                   );
                 };
@@ -576,8 +618,8 @@ export default function Assets(
                   <FixedSizeList
                     height={height}
                     width={width}
-                    itemCount={Math.ceil(sortedFiles.length / (viewType === 'list' ? listCols : gridCols))}
-                    itemSize={viewType === 'list' ? 28 : width / cols.value}
+                    itemCount={Math.ceil(sortedFiles.length / columnCount)}
+                    itemSize={viewType === 'list' ? 28 : width / columnCount}
                     ref={scrollRef}
                   >
                     {rowRenderer}
