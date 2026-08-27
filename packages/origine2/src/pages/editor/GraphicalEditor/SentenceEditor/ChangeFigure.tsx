@@ -2,7 +2,7 @@ import CommonOptions from "../components/CommonOption";
 import { ISentenceEditorProps } from "./index";
 import styles from "./sentenceEditor.module.scss";
 import ChooseFile from "../../ChooseFile/ChooseFile";
-import { useValue } from "@/hooks/useValue";
+import { useValue } from "../../../../hooks/useValue";
 import { getArgByKey } from "../utils/getArgByKey";
 import TerreToggle from "../../../../components/terreToggle/TerreToggle";
 import { useEffect, useMemo, useState } from "react";
@@ -27,7 +27,6 @@ type AnimationFlag = "" | "on";
 type LoopMode = "true" | "false" | "disappear";
 type PanelType = "effect" | "moreOptions";
 
-
 // eslint-disable-next-line complexity
 export default function ChangeFigure(props: ISentenceEditorProps) {
   const gameDir = useEditorStore.use.subPage();
@@ -40,9 +39,12 @@ export default function ChangeFigure(props: ISentenceEditorProps) {
   const isNoFile = props.sentence.content === "";
   const clear = useValue(getArgByKey(props.sentence, "clear") === true);
   const id = useValue(getArgByKey(props.sentence, "id").toString() ?? "");
-  const json = useValue<string>(getArgByKey(props.sentence, "transform") as string);
+  const json = useValue<string>(getArgByKey(props.sentence, 'transform') as string);
   const duration = useValue<number | string>(getArgByKey(props.sentence, "duration") as number);
-
+  const enterDuration = useValue<number | string>(getArgByKey(props.sentence, 'enterDuration') as number);
+  const exitDuration = useValue<number | string>(getArgByKey(props.sentence, 'exitDuration') as number);
+  const enterAnimation = useValue(getArgByKey(props.sentence, "enter").toString() ?? "");
+  const exitAnimation = useValue(getArgByKey(props.sentence, "exit").toString() ?? "");
   const mouthOpen = useValue(getArgByKey(props.sentence, "mouthOpen").toString() ?? "");
   const mouthHalfOpen = useValue(getArgByKey(props.sentence, "mouthHalfOpen").toString() ?? "");
   const mouthClose = useValue(getArgByKey(props.sentence, "mouthClose").toString() ?? "");
@@ -50,28 +52,31 @@ export default function ChangeFigure(props: ISentenceEditorProps) {
   const eyesClose = useValue(getArgByKey(props.sentence, "eyesClose").toString() ?? "");
   const animationFlag = useValue(getArgByKey(props.sentence, "animationFlag").toString() ?? "");
   const bounds = useValue(getArgByKey(props.sentence, "bounds").toString() ?? "");
-  const zIndex = useValue(String(getArgByKey(props.sentence, "zIndex") ?? ""));
-  const loopMode = useValue<LoopMode>(
-    ((getArgByKey(props.sentence, "loop") as string) || "") as LoopMode
-  );
+  const zIndex = useValue(String(getArgByKey(props.sentence, 'zIndex') ?? ''));
   const blink = useValue<string>(getArgByKey(props.sentence, "blink").toString() ?? "");
   const focus = useValue<string>(getArgByKey(props.sentence, "focus").toString() ?? "");
   const blendMode = useValue<string>(getArgByKey(props.sentence, "blendMode").toString() ?? "");
   const ignoreDefault = useValue(getArgByKey(props.sentence, "ignoreDefault") === true);
+  const loopMode = useValue<LoopMode>(
+    ((getArgByKey(props.sentence, "loop") as string) || "") as LoopMode
+  );
   const [isAccordionOpen, setIsAccordionOpen] = useState(false);
   const [l2dMotionsList, setL2dMotionsList] = useState<string[]>([]);
   const [l2dExpressionsList, setL2dExpressionsList] = useState<string[]>([]);
   const [spineSkinsList, setSpineSkinsList] = useState<string[]>([]);
   const [isSpineJsonFormat, setIsSpineJsonFormat] = useState(false);
+  const [isJsonlFormat, setIsJsonlFormat] = useState(false);
 
   const currentMotion = useValue(getArgByKey(props.sentence, "motion").toString() ?? "");
-  const currentExpression = useValue(getArgByKey(props.sentence, "expression").toString() ?? "");
+  const currentExpression = useValue(
+    getArgByKey(props.sentence, "expression").toString() ?? ""
+  );
   const currentSkin = useValue(getArgByKey(props.sentence, "skin").toString() ?? "");
 
   const figurePositions = new Map<FigurePosition, string>([
     ["", t`中间`],
     ["left", t`左侧`],
-    ["right", t`右侧`],
+    ["right", t`右侧`]
   ]);
 
   const animationFlags = new Map<AnimationFlag, string>([
@@ -79,7 +84,13 @@ export default function ChangeFigure(props: ISentenceEditorProps) {
     ["on", "ON"],
   ]);
 
-  const ease = useValue(getArgByKey(props.sentence, "ease").toString() ?? "");
+  const loopModes = new Map<LoopMode, string>([
+    ["true",     t`循环播放`],
+    ["false",    t`播放一次并停在最后一帧`],
+    ["disappear",t`播放一次后消失`],
+  ]);
+
+  const ease = useValue(getArgByKey(props.sentence, 'ease').toString() ?? '');
   const easeTypeOptions = useEaseTypeOptions();
 
   // Blink
@@ -162,141 +173,13 @@ export default function ChangeFigure(props: ISentenceEditorProps) {
     ["false", t`关闭`],
   ]), []);
 
-  useEffect(() => {
-    if (figureFile.value.includes('json')) {
-      console.log('loading JSON file to get motion and expression');
-      axios.get(`/games/${gameDir}/game/figure/${figureFile.value}`).then(resp => {
-        const data = resp.data;
-
-        // 检测是否为 Spine JSON 格式
-        if (data?.animations) {
-          // 处理 Spine JSON 格式的 animations
-          setIsSpineJsonFormat(true);
-          const animations = Object.keys(data.animations);
-          setL2dMotionsList(animations.sort((a, b) => a.localeCompare(b)));
-          // 处理 Spine JSON 格式的 skins
-          if (Array.isArray(data.skins)) {
-            const skins: string[] = data.skins.map((s: { name: string }) => s.name);
-            setSpineSkinsList(skins.sort((a, b) => a.localeCompare(b)));
-          } else {
-            setSpineSkinsList([]);
-          }
-          // Spine JSON 格式忽略 expressions
-          setL2dExpressionsList([]);
-        } else {
-          // Live2D 格式
-          setIsSpineJsonFormat(false);
-          setSpineSkinsList([]);
-
-          if (data?.motions) {
-            // 处理 motions
-            const motions = Object.keys(data.motions);
-            setL2dMotionsList(motions.sort((a, b) => a.localeCompare(b)));
-          }
-
-          // 处理 expressions
-          if (data?.expressions) {
-            const expressions: string[] = data.expressions.map((exp: { name: string }) => exp.name);
-            setL2dExpressionsList(expressions.sort((a, b) => a.localeCompare(b)));
-          }
-
-          // 处理 v3 版本的 model
-          if (data?.['FileReferences']?.['Motions']) {
-            const motions = Object.keys(data['FileReferences']['Motions']);
-            setL2dMotionsList(motions.sort((a, b) => a.localeCompare(b)));
-          }
-
-          if (data?.['FileReferences']?.['Expressions']) {
-            const expressions: string[] = data['FileReferences']['Expressions'].map((exp: { Name: string }) => exp.Name);
-            setL2dExpressionsList(expressions.sort((a, b) => a.localeCompare(b)));
-          }
-        }
-
-      });
-    } else {
-      setIsSpineJsonFormat(false);
-    }
-  }, [figureFile.value]);
-  const toggleAccordion = () => {
-    setIsAccordionOpen(!isAccordionOpen);
-  };
-  const optionButtonStyles = {
-    root: {
-      margin: '6px 0 0 0',
-      display: 'flex'
-    },
-  };
-
-  useEffect(() => {
-    if (figureFile.value.includes('json')) {
-      console.log('loading JSON file to get motion and expression');
-      axios.get(`/games/${gameDir}/game/figure/${figureFile.value}`).then(resp => {
-        const data = resp.data;
-
-        // 检测是否为 Spine JSON 格式
-        if (data?.animations) {
-          // 处理 Spine JSON 格式的 animations
-          setIsSpineJsonFormat(true);
-          const animations = Object.keys(data.animations);
-          setL2dMotionsList(animations.sort((a, b) => a.localeCompare(b)));
-          // 处理 Spine JSON 格式的 skins
-          if (Array.isArray(data.skins)) {
-            const skins: string[] = data.skins.map((s: { name: string }) => s.name);
-            setSpineSkinsList(skins.sort((a, b) => a.localeCompare(b)));
-          } else {
-            setSpineSkinsList([]);
-          }
-          // Spine JSON 格式忽略 expressions
-          setL2dExpressionsList([]);
-        } else {
-          // Live2D 格式
-          setIsSpineJsonFormat(false);
-          setSpineSkinsList([]);
-
-          if (data?.motions) {
-            // 处理 motions
-            const motions = Object.keys(data.motions);
-            setL2dMotionsList(motions.sort((a, b) => a.localeCompare(b)));
-          }
-
-          // 处理 expressions
-          if (data?.expressions) {
-            const expressions: string[] = data.expressions.map((exp: { name: string }) => exp.name);
-            setL2dExpressionsList(expressions.sort((a, b) => a.localeCompare(b)));
-          }
-
-          // 处理 v3 版本的 model
-          if (data?.['FileReferences']?.['Motions']) {
-            const motions = Object.keys(data['FileReferences']['Motions']);
-            setL2dMotionsList(motions.sort((a, b) => a.localeCompare(b)));
-          }
-
-          if (data?.['FileReferences']?.['Expressions']) {
-            const expressions: string[] = data['FileReferences']['Expressions'].map((exp: { Name: string }) => exp.Name);
-            setL2dExpressionsList(expressions.sort((a, b) => a.localeCompare(b)));
-          }
-        }
-
-      });
-    } else {
-      setIsSpineJsonFormat(false);
-    }
-  }, [figureFile.value]);
-  const toggleAccordion = () => {
-    setIsAccordionOpen(!isAccordionOpen);
-  };
-  const optionButtonStyles = {
-    root: {
-      margin: '6px 0 0 0',
-      display: 'flex'
-    },
-  };
-
   const isJsonlPath = (p: string) => p?.toLowerCase()?.endsWith(".jsonl");
+
   const isVideoLike = (p: string) => {
     const s = (p || "").toLowerCase();
     return s.endsWith(".webm") || s.endsWith(".mp4") || s.endsWith(".mov") || s.endsWith(".gif");
   };
+
   function parseJsonlSummary(text: string): { motions: string[]; expressions: string[] } {
     const lines = text.split("\n").map((s) => s.trim()).filter(Boolean);
     for (let i = lines.length - 1; i >= 0; i--) {
@@ -323,6 +206,17 @@ export default function ChangeFigure(props: ISentenceEditorProps) {
     }
     return { motions: [], expressions: [] };
   }
+
+  const toggleAccordion = () => {
+    setIsAccordionOpen(!isAccordionOpen);
+  };
+  const optionButtonStyles = {
+    root: {
+      margin: '6px 0 0 0',
+      display: 'flex'
+    },
+  };
+
   // 载入 motions / expressions（支持 .jsonl / .json / spine / .wmdl）
   useEffect(() => {
     // reset
@@ -330,6 +224,7 @@ export default function ChangeFigure(props: ISentenceEditorProps) {
     setIsSpineJsonFormat(false);
     setL2dMotionsList([]);
     setL2dExpressionsList([]);
+    setSpineSkinsList([]);
 
     const pathRaw = figureFile.value || "";
     const pathLower = pathRaw.toLowerCase();
@@ -366,6 +261,13 @@ export default function ChangeFigure(props: ISentenceEditorProps) {
           setIsSpineJsonFormat(true);
           const animations = Object.keys(data.animations || {});
           setL2dMotionsList(animations.sort((a, b) => a.localeCompare(b)));
+          // 处理 Spine JSON 格式的 skins
+          if (Array.isArray(data.skins)) {
+            const skins: string[] = data.skins.map((s: { name: string }) => s.name);
+            setSpineSkinsList(skins.sort((a, b) => a.localeCompare(b)));
+          } else {
+            setSpineSkinsList([]);
+          }
           setL2dExpressionsList([]); // Spine 没有表情
           return;
         }
@@ -486,6 +388,7 @@ export default function ChangeFigure(props: ISentenceEditorProps) {
         {key: "blendMode", value: blendMode.value},
         {key: "ignoreDefault", value: ignoreDefault.value},
         {key: "next", value: isGoNext.value},
+        {key: "loop", value: loopMode.value},
       ],
       props.sentence.inlineComment,
     );

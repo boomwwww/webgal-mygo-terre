@@ -300,6 +300,48 @@ export default function GameConfig({ mode = 'full' }: GameConfigProps) {
           ]}
           onChange={(e: string) => updateGameConfigSimpleByKey('Default_Language', e)}/>,
       )}
+      {renderConfigItem(t`Live2D 定位类型`,
+        <div style={{display: 'flex', flexDirection: `column`}}>
+          <GameConfigEditorWithSelector
+            key="live2d_position_type"
+            value={getConfigContentAsString('Positioning_Type') ? getConfigContentAsString('Positioning_Type') : ''}
+            selectItems={[
+              {key: '', text: t`默认`},
+              {key: 'M_2_3', text: `MyGO 2.3`},
+              {key: 'M_2_4', text: `MyGO 2.4`},
+              {key: 'M_3_0_0', text: `MyGO 3.0.0`},
+              {key: 'M_3_1_0', text: `MyGO 3.1.0`},
+            ]}
+            onChange={(e: string) => updateGameConfigSimpleByKey('Positioning_Type', e)}
+          />
+          <div className={styles.tips}>{t`刷新游戏后生效`}</div>
+        </div>,
+      )}
+      {renderConfigItem(t`舞台分辨率`,
+        <div style={{display: 'flex', flexDirection: `column`}}>
+          <div style={{display: 'flex', flexDirection: `row`, alignItems: 'center', gap: '8px'}}>
+            <GameConfigEditor key="stageWidth" value={getConfigContentAsString('Stage_Width')}
+              onChange={(e: string) => updateGameConfigSimpleByKey("Stage_Width", e)}/>
+            <GameConfigEditor key="stageHeight" value={getConfigContentAsString('Stage_Height')}
+              onChange={(e: string) => updateGameConfigSimpleByKey("Stage_Height", e)}/>
+            <Button onClick={()=>{
+              updateGameConfigSimpleByKey("Stage_Width", "2560");
+              updateGameConfigSimpleByKey("Stage_Height", "1440");
+            }}>{t`重置`}</Button>
+          </div>
+          <div className={styles.tips}>{t`刷新游戏后生效`}</div>
+        </div>,
+      )}
+      {renderConfigItem(t`自动旋转`,
+        <GameConfigEditorWithSelector
+          key="autoRotate"
+          value={getConfigContentAsString('Auto_Rotate') ? getConfigContentAsString('Auto_Rotate') : 'true'}
+          selectItems={[
+            {key: 'true', text: t`启用`},
+            {key: 'false', text: t`禁用`}
+          ]}
+          onChange={(e: string) => updateGameConfigSimpleByKey('Auto_Rotate', e)}/>,
+      )}
     </div>
   );
 }

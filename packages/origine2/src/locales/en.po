@@ -107,6 +107,9 @@ msgstr "label:label_1;"
 msgid "Live2D 动作"
 msgstr "Live2D Motion"
 
+msgid "Live2D 定位类型"
+msgstr "Live2D Position Type"
+
 msgid "Live2D 表情"
 msgstr "Live2D Expression"
 
@@ -542,6 +545,9 @@ msgstr "Refresh"
 msgid "刷新游戏"
 msgstr "Refresh game"
 
+msgid "刷新游戏后生效"
+msgstr "Effective after refreshing the game"
+
 msgid "前景"
 msgstr "Foreground"
 
@@ -974,6 +980,12 @@ msgstr "The current environment does not support the system folder picker. Enter
 msgid "当前预览变量"
 msgstr "Current preview variables"
 
+msgid "循环播放"
+msgstr "Loop Playback"
+
+msgid "循环模式（仅视频/GIF 立绘）"
+msgstr "Loop Mode"
+
 msgid "德语"
 msgstr "German"
 
@@ -1099,6 +1111,12 @@ msgstr "Search options"
 
 msgid "播放一小段视频"
 msgstr "Play a short video"
+
+msgid "播放一次后消失"
+msgstr "Play once and disappear"
+
+msgid "播放一次并停在最后一帧"
+msgstr "Play once and stop at last frame"
 
 msgid "播放一段效果音"
 msgstr "Play a sound effect"
@@ -1862,6 +1880,9 @@ msgstr "Auto"
 msgid "自动换行"
 msgstr "Auto wrap"
 
+msgid "自动旋转"
+msgstr "Auto rotate"
+
 msgid "自动隐藏功能区"
 msgstr "Auto-hide toolbar"
 
@@ -1882,6 +1903,9 @@ msgstr "Custom effect name"
 
 msgid "自定义级联选择器分隔符"
 msgstr "Custom cascade selector separator"
+
+msgid "舞台分辨率"
+msgstr "Stage resolution"
 
 msgid "舞台对象控制"
 msgstr "Stage object control"
@@ -2257,6 +2281,9 @@ msgstr "Rename template directory"
 
 msgid "重命名游戏目录"
 msgstr "Rename game directory"
+
+msgid "重置"
+msgstr "Reset"
 
 msgid "鉴赏"
 msgstr "Appreciation"

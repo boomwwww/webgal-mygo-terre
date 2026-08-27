@@ -107,6 +107,9 @@ msgstr "label:label_1;"
 msgid "Live2D 动作"
 msgstr "Live2D 모션"
 
+msgid "Live2D 定位类型"
+msgstr "Live2D 위치 지정 유형"
+
 msgid "Live2D 表情"
 msgstr "Live2D 표정"
 
@@ -542,6 +545,9 @@ msgstr "새로고침"
 msgid "刷新游戏"
 msgstr "게임 새로고침"
 
+msgid "刷新游戏后生效"
+msgstr "게임을 새로 고친 뒤 적용됩니다"
+
 msgid "前景"
 msgstr "전경"
 
@@ -974,6 +980,12 @@ msgstr "현재 환경은 시스템 파일 탐색기를 지원하지 않습니다
 msgid "当前预览变量"
 msgstr "현재 미리보기 변수"
 
+msgid "循环播放"
+msgstr "반복 재생"
+
+msgid "循环模式（仅视频/GIF 立绘）"
+msgstr "반복 모드(동영상/GIF 스탠딩 전용)"
+
 msgid "德语"
 msgstr "독일어"
 
@@ -1099,6 +1111,12 @@ msgstr "옵션 검색"
 
 msgid "播放一小段视频"
 msgstr "비디오 클립 재생"
+
+msgid "播放一次后消失"
+msgstr "한 번 재생 후 사라짐"
+
+msgid "播放一次并停在最后一帧"
+msgstr "한 번 재생하고 마지막 프레임에서 정지"
 
 msgid "播放一段效果音"
 msgstr "효과음 클립 재생"
@@ -1862,6 +1880,9 @@ msgstr "자동"
 msgid "自动换行"
 msgstr "자동 줄바꿈"
 
+msgid "自动旋转"
+msgstr "자동 회전"
+
 msgid "自动隐藏功能区"
 msgstr "리본 메뉴 자동 숨기기"
 
@@ -1882,6 +1903,9 @@ msgstr "커스텀 특수 효과 이름"
 
 msgid "自定义级联选择器分隔符"
 msgstr "커스텀 캐스케이드 선택기 구분 기호"
+
+msgid "舞台分辨率"
+msgstr "스테이지 해상도"
 
 msgid "舞台对象控制"
 msgstr "스테이지 객체 제어"
@@ -2257,6 +2281,9 @@ msgstr "템플릿 목록의 이름 바꾸기"
 
 msgid "重命名游戏目录"
 msgstr "게임 목록의 이름 바꾸기"
+
+msgid "重置"
+msgstr "초기화"
 
 msgid "鉴赏"
 msgstr "감상(갤러리)"

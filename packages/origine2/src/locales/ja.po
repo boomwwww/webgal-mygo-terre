@@ -107,6 +107,9 @@ msgstr "label:label_1;"
 msgid "Live2D 动作"
 msgstr "Live2D モーション"
 
+msgid "Live2D 定位类型"
+msgstr "Live2D の位置タイプ"
+
 msgid "Live2D 表情"
 msgstr "Live2D 表情"
 
@@ -542,6 +545,9 @@ msgstr "更新"
 msgid "刷新游戏"
 msgstr "ゲームをリフレッシュ"
 
+msgid "刷新游戏后生效"
+msgstr "ゲームをリフレッシュした後に有効"
+
 msgid "前景"
 msgstr "Foreground"
 
@@ -974,6 +980,12 @@ msgstr "現在の環境ではシステムのフォルダー選択を使用でき
 msgid "当前预览变量"
 msgstr "現在のプレビュー変数"
 
+msgid "循环播放"
+msgstr "ループ再生"
+
+msgid "循环模式（仅视频/GIF 立绘）"
+msgstr "ループモード（ビデオ/GIF 立ち絵のみ）"
+
 msgid "德语"
 msgstr "ドイツ語"
 
@@ -1099,6 +1111,12 @@ msgstr "検索オプション"
 
 msgid "播放一小段视频"
 msgstr "動画ファイルを再生する"
+
+msgid "播放一次后消失"
+msgstr "一度再生した後に消える"
+
+msgid "播放一次并停在最后一帧"
+msgstr "一度再生して最後のフレームで停止する"
 
 msgid "播放一段效果音"
 msgstr "効果音を再生します"
@@ -1862,6 +1880,9 @@ msgstr "自動"
 msgid "自动换行"
 msgstr "自動折り返し"
 
+msgid "自动旋转"
+msgstr "自動回転"
+
 msgid "自动隐藏功能区"
 msgstr "ツールバーを自動的に隠す"
 
@@ -1882,6 +1903,9 @@ msgstr "カスタムの特殊効果名"
 
 msgid "自定义级联选择器分隔符"
 msgstr "カスタムカスケードセレクター区切り文字"
+
+msgid "舞台分辨率"
+msgstr "ステージ解像度"
 
 msgid "舞台对象控制"
 msgstr "ステージオブジェクトコントロール"
@@ -2257,6 +2281,9 @@ msgstr "テンプレート名変更"
 
 msgid "重命名游戏目录"
 msgstr "ゲームディレクトリ名変更"
+
+msgid "重置"
+msgstr "リセット"
 
 msgid "鉴赏"
 msgstr "鑑賞"
