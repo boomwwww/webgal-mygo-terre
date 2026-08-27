@@ -7,7 +7,6 @@ import { useEffect } from 'react';
 import useEditorStore from '@/store/useEditorStore';
 import { api } from '@/api';
 import { IFile } from '@/components/Assets/Assets';
-import { __INFO } from '@/config/info';
 import axios from 'axios';
 
 const InfoIcon = bundleIcon(InfoFilled, InfoRegular);
@@ -52,8 +51,24 @@ const VersionInfo: React.FunctionComponent = () => {
     }
   }
 
+  async function identifyByFingerprint(): Promise<string | null> {
+    const mainJsFileName = await getMainJsFileName(`games/${gameDir}/assets`);
+    if (mainJsFileName) {
+      return versionMap.get(mainJsFileName) ?? null;
+    }
+    return null;
+  }
+
   async function fetchEngineVersion() {
-    // 新方法：读取 webgal-engine.json（原版 4.6.0 / 专版 3.2.0 起）
+    // ① 指纹优先：老专版引擎（MyGO 2.2 ~ 3.1.1）的 index-*.js 命中 versionMap
+    const fingerprinted = await identifyByFingerprint();
+    if (fingerprinted) {
+      setEngineVersion(fingerprinted);
+      setEngineBaseVersion(null);
+      return;
+    }
+
+    // ② 新方法：读取 webgal-engine.json（原版 4.6.0 / 专版 3.2.0 起）
     try {
       const res = await axios.get<WebgalEngineManifest>(`/games/${gameDir}/webgal-engine.json`);
       const manifest = res.data;
@@ -70,19 +85,11 @@ const VersionInfo: React.FunctionComponent = () => {
         return;
       }
     } catch (error) {
-      console.warn('webgal-engine.json 读取失败，回退到旧方法:', error);
+      console.warn('webgal-engine.json 读取失败:', error);
     }
 
-    // 旧方法：老引擎（< 4.6.0 / < 3.2.0）按 index-*.js 指纹识别
-    const mainJsFileName = await getMainJsFileName(`games/${gameDir}/assets`);
-    if (mainJsFileName) {
-      const version = versionMap.get(mainJsFileName) || `${mainJsFileName}(未知版本)`;
-      setEngineVersion(version);
-      setEngineBaseVersion(null);
-      return;
-    }
-    // 如果游戏目录下没有找到主 js 文件，一般代表正在使用默认引擎
-    setEngineVersion(`WebGAL v${__INFO.version}(默认)`);
+    // ③ 新旧方式都无法识别
+    setEngineVersion('无法识别');
     setEngineBaseVersion(null);
   }
 
