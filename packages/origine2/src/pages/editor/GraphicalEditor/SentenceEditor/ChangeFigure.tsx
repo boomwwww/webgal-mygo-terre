@@ -363,19 +363,19 @@ export default function ChangeFigure(props: ISentenceEditorProps) {
         {key: "transform", value: json.value},
         {key: "duration", value: duration.value},
         ...(animationFlag.value !== "" ? [
-          {key: "animationFlag", value: animationFlag.value},
-          {key: "eyesOpen", value: eyesOpen.value},
-          {key: "eyesClose", value: eyesClose.value},
-          {key: "mouthOpen", value: mouthOpen.value},
-          {key: "mouthHalfOpen", value: mouthHalfOpen.value},
-          {key: "mouthClose", value: mouthClose.value},
+          { key: "animationFlag", value: animationFlag.value },
+          { key: "eyesOpen", value: eyesOpen.value },
+          { key: "eyesClose", value: eyesClose.value },
+          { key: "mouthOpen", value: mouthOpen.value },
+          { key: "mouthHalfOpen", value: mouthHalfOpen.value },
+          { key: "mouthClose", value: mouthClose.value },
         ] : [
-          {key: "animationFlag", value: ""},
-          {key: "eyesOpen", value: ""},
-          {key: "eyesClose", value: ""},
-          {key: "mouthOpen", value: ""},
-          {key: "mouthHalfOpen", value: ""},
-          {key: "mouthClose", value: ""},
+          { key: "animationFlag", value: "" },
+          { key: "eyesOpen", value: "" },
+          { key: "eyesClose", value: "" },
+          { key: "mouthOpen", value: "" },
+          { key: "mouthHalfOpen", value: "" },
+          { key: "mouthClose", value: "" },
         ]),
         {key: "motion", value: currentMotion.value},
         {key: "expression", value: currentExpression.value},
@@ -663,7 +663,7 @@ export default function ChangeFigure(props: ISentenceEditorProps) {
           onBlur={submit}
           className={styles.sayInput}
           placeholder={t`1, 2, 3, ...`}
-          style={{width: "100%"}}
+          style={{ width: "100%" }}
         />
       </CommonOptions>
 
@@ -686,7 +686,7 @@ export default function ChangeFigure(props: ISentenceEditorProps) {
             <SearchableCascader
               optionList={l2dMotionsList}
               value={currentMotion.value}
-              onValueChange={(newValue) =>{
+              onValueChange={(newValue) => {
                 newValue && currentMotion.set(newValue);
                 submit();
               }}
@@ -697,7 +697,7 @@ export default function ChangeFigure(props: ISentenceEditorProps) {
               <SearchableCascader
                 optionList={l2dExpressionsList}
                 value={currentExpression.value}
-                onValueChange={(newValue) =>{
+                onValueChange={(newValue) => {
                   newValue && currentExpression.set(newValue);
                   submit();
                 }}
@@ -738,7 +738,7 @@ export default function ChangeFigure(props: ISentenceEditorProps) {
           onBlur={submit}
           className={styles.sayInput}
           placeholder={t`立绘 ID`}
-          style={{width: "100%"}}
+          style={{ width: "100%" }}
         />
       </CommonOptions>
       <CommonOptions key="5" title={t`缓动类型`}>
