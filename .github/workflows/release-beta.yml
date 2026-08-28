@@ -3,7 +3,7 @@ name: Release WebGAL Terre Beta
 on:
   push:
     tags:
-      - '*beta*'
+      - 'never-match-this-tag'
 
 jobs:
   check-dev-tag:
