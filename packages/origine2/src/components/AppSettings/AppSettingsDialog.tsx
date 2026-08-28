@@ -46,10 +46,7 @@ import { candidateFontSizes } from '@/pages/editor/Topbar/tabs/Settings/constant
 import { UserDataSettingsPanel } from '@/components/UserDataSettings/UserDataSettingsDialog';
 import styles from './AppSettingsDialog.module.scss';
 
-export {
-  USER_DATA_STATUS_KEY,
-  userDataStatusFetcher,
-} from '@/components/UserDataSettings/UserDataSettingsDialog';
+export { USER_DATA_STATUS_KEY, userDataStatusFetcher } from '@/components/UserDataSettings/UserDataSettingsDialog';
 
 const LocalLanguageIcon = bundleIcon(LocalLanguageFilled, LocalLanguageRegular);
 const LiveIcon = bundleIcon(LiveFilled, LiveRegular);
@@ -77,19 +74,9 @@ interface SettingTileProps {
   onClick?: () => void;
 }
 
-export function SettingTile({
-  icon,
-  title,
-  description,
-  active = false,
-  onClick,
-}: SettingTileProps) {
+export function SettingTile({ icon, title, description, active = false, onClick }: SettingTileProps) {
   return (
-    <button
-      type="button"
-      className={`${styles.tile} ${active ? styles.tileActive : ''}`}
-      onClick={onClick}
-    >
+    <button type="button" className={`${styles.tile} ${active ? styles.tileActive : ''}`} onClick={onClick}>
       <span className={styles.tileIcon}>{icon}</span>
       <span className={styles.tileText}>
         <span className={styles.tileTitle}>{title}</span>
@@ -99,11 +86,7 @@ export function SettingTile({
   );
 }
 
-export function AppSettingsButton({
-  appearance = 'subtle',
-  label = t`设置`,
-  className,
-}: AppSettingsButtonProps) {
+export function AppSettingsButton({ appearance = 'subtle', label = t`设置`, className }: AppSettingsButtonProps) {
   const [open, setOpen] = useState(false);
   return (
     <>
@@ -112,14 +95,18 @@ export function AppSettingsButton({
         appearance={appearance}
         icon={<Settings20Regular />}
         onClick={() => setOpen(true)}
-        style={className ? undefined : {
-          fontWeight: 'normal',
-          fontSize: '14px',
-          paddingLeft: '4px',
-          paddingRight: '4px',
-          minWidth: 0,
-          textWrap: 'nowrap',
-        }}
+        style={
+          className
+            ? undefined
+            : {
+              fontWeight: 'normal',
+              fontSize: '14px',
+              paddingLeft: '4px',
+              paddingRight: '4px',
+              minWidth: 0,
+              textWrap: 'nowrap',
+            }
+        }
       >
         {label}
       </Button>
@@ -128,11 +115,7 @@ export function AppSettingsButton({
   );
 }
 
-export function SettingsShortcutGrid({
-  onOpenSettings,
-}: {
-  onOpenSettings?: () => void;
-}) {
+export function SettingsShortcutGrid({ onOpenSettings }: { onOpenSettings?: () => void }) {
   const updateLanguage = useEditorStore.use.updateLanguage();
   const isDarkMode = useEditorStore.use.isDarkMode();
   const updateIsDarkMode = useEditorStore.use.updateIsDarkMode();
@@ -163,11 +146,7 @@ export function SettingsShortcutGrid({
       <Menu>
         <MenuTrigger>
           <div>
-            <SettingTile
-              icon={<LocalLanguageIcon />}
-              title={t`语言`}
-              description={t`切换界面语言`}
-            />
+            <SettingTile icon={<LocalLanguageIcon />} title={t`语言`} description={t`切换界面语言`} />
           </div>
         </MenuTrigger>
         <MenuPopover>
@@ -259,7 +238,10 @@ export function AppSettingsDialog({ open, onOpenChange }: AppSettingsDialogProps
 
   return (
     <Dialog open={open} onOpenChange={(_, data) => onOpenChange(data.open)}>
-      <DialogSurface className={styles.dialogSurface} style={{width: 'min(1150px, calc(100vw - 32px))', maxWidth: 'min(1150px, calc(100vw - 32px))'}}>
+      <DialogSurface
+        className={styles.dialogSurface}
+        style={{ width: 'min(1150px, calc(100vw - 32px))', maxWidth: 'min(1150px, calc(100vw - 32px))' }}
+      >
         <DialogBody>
           <DialogTitle
             action={
@@ -281,10 +263,7 @@ export function AppSettingsDialog({ open, onOpenChange }: AppSettingsDialogProps
                 <div className={styles.fieldGrid}>
                   <label className={styles.field}>
                     <span className={styles.fieldLabel}>{t`字体`}</span>
-                    <Input
-                      value={editorFontFamily}
-                      onChange={(ev) => updateEditorFontFamily(ev.target.value)}
-                    />
+                    <Input value={editorFontFamily} onChange={(ev) => updateEditorFontFamily(ev.target.value)} />
                   </label>
                   <label className={styles.field}>
                     <span className={styles.fieldLabel}>{t`字体大小`}</span>

@@ -36,7 +36,7 @@ export default function ChangeFigure(props: ISentenceEditorProps) {
   const figureFile = useValue(props.sentence.content);
   const isHaveSpineArg = figureFile.value.includes('?type=spine');
   const figurePosition = useValue<FigurePosition>("");
-  const isNoFile = props.sentence.content === "";
+  const isNoFile = props.sentence.content === "" || props.sentence.content === "none";
   const clear = useValue(getArgByKey(props.sentence, "clear") === true);
   const id = useValue(getArgByKey(props.sentence, "id").toString() ?? "");
   const json = useValue<string>(getArgByKey(props.sentence, 'transform') as string);
@@ -363,19 +363,19 @@ export default function ChangeFigure(props: ISentenceEditorProps) {
         {key: "transform", value: json.value},
         {key: "duration", value: duration.value},
         ...(animationFlag.value !== "" ? [
-          {key: "animationFlag", value: animationFlag.value},
-          {key: "eyesOpen", value: eyesOpen.value},
-          {key: "eyesClose", value: eyesClose.value},
-          {key: "mouthOpen", value: mouthOpen.value},
-          {key: "mouthHalfOpen", value: mouthHalfOpen.value},
-          {key: "mouthClose", value: mouthClose.value},
+          { key: "animationFlag", value: animationFlag.value },
+          { key: "eyesOpen", value: eyesOpen.value },
+          { key: "eyesClose", value: eyesClose.value },
+          { key: "mouthOpen", value: mouthOpen.value },
+          { key: "mouthHalfOpen", value: mouthHalfOpen.value },
+          { key: "mouthClose", value: mouthClose.value },
         ] : [
-          {key: "animationFlag", value: ""},
-          {key: "eyesOpen", value: ""},
-          {key: "eyesClose", value: ""},
-          {key: "mouthOpen", value: ""},
-          {key: "mouthHalfOpen", value: ""},
-          {key: "mouthClose", value: ""},
+          { key: "animationFlag", value: "" },
+          { key: "eyesOpen", value: "" },
+          { key: "eyesClose", value: "" },
+          { key: "mouthOpen", value: "" },
+          { key: "mouthHalfOpen", value: "" },
+          { key: "mouthClose", value: "" },
         ]),
         {key: "motion", value: currentMotion.value},
         {key: "expression", value: currentExpression.value},
@@ -401,7 +401,7 @@ export default function ChangeFigure(props: ISentenceEditorProps) {
       submit();
     } else if (event.action === 'preview') {
       const target = id.value || `fig-${figurePosition.value || 'center'}`;
-      EditorPreviewClient.setEffect({ target, transform: event.value });
+      EditorPreviewClient.setEffect({ target, transform: event.value, phase: 'preview' });
     } else {
       const values = { enterAnimation, exitAnimation, duration, enterDuration, exitDuration, ease, blendMode };
       values[event.key].set(event.value as never);
@@ -622,14 +622,14 @@ export default function ChangeFigure(props: ISentenceEditorProps) {
 
   return <div className={styles.sentenceEditorContent}>
     <div className={styles.editItem}>
-      <CommonOptions key="isNoDialog" title={t`立绘显示状态`}>
+      <CommonOptions key="isNoDialog" title={t`清除立绘`}>
         <TerreToggle title="" onChange={(newValue) => {
           if (!newValue) {
             figureFile.set(t`选择立绘文件`);
           } else
             figureFile.set("none");
           submit();
-        }} onText={t`关闭立绘`} offText={t`显示立绘`} isChecked={isNoFile} />
+        }} onText={t`清除立绘`} offText={t`显示立绘`} isChecked={isNoFile} />
       </CommonOptions>
       <CommonOptions key="clearFigure" title={t`立绘清除参数`}>
         <TerreToggle title="" onChange={(newValue) => {
@@ -663,7 +663,7 @@ export default function ChangeFigure(props: ISentenceEditorProps) {
           onBlur={submit}
           className={styles.sayInput}
           placeholder={t`1, 2, 3, ...`}
-          style={{width: "100%"}}
+          style={{ width: "100%" }}
         />
       </CommonOptions>
 
@@ -686,7 +686,7 @@ export default function ChangeFigure(props: ISentenceEditorProps) {
             <SearchableCascader
               optionList={l2dMotionsList}
               value={currentMotion.value}
-              onValueChange={(newValue) =>{
+              onValueChange={(newValue) => {
                 newValue && currentMotion.set(newValue);
                 submit();
               }}
@@ -697,7 +697,7 @@ export default function ChangeFigure(props: ISentenceEditorProps) {
               <SearchableCascader
                 optionList={l2dExpressionsList}
                 value={currentExpression.value}
-                onValueChange={(newValue) =>{
+                onValueChange={(newValue) => {
                   newValue && currentExpression.set(newValue);
                   submit();
                 }}
@@ -738,7 +738,7 @@ export default function ChangeFigure(props: ISentenceEditorProps) {
           onBlur={submit}
           className={styles.sayInput}
           placeholder={t`立绘 ID`}
-          style={{width: "100%"}}
+          style={{ width: "100%" }}
         />
       </CommonOptions>
       <CommonOptions key="5" title={t`缓动类型`}>
