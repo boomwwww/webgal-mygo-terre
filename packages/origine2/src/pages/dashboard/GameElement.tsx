@@ -104,7 +104,7 @@ export default function GameElement(props: IGameElementProps) {
     <>
       <div onClick={props.onClick} className={className} id={props.gameInfo.dir}>
         <img
-          src={`/games/${props.gameInfo.dir}/game/${soureBase}/${props.gameInfo.cover}`}
+          src={`/games/${props.gameInfo.dir}/game/${soureBase}/${props.gameInfo.cover.trim()}`}
           alt={props.gameInfo.name}
           className={styles.gameElement_cover}
         />

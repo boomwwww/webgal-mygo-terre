@@ -39,7 +39,7 @@ const About: React.FunctionComponent = () => {
           <Text as='b' block>
             <p>{t`视觉小说编辑，再进化`}</p>
             <small>
-              {t`当前版本`}: {`MyGO_v${config.version} (${__INFO.buildTime.toLocaleString('zh-CN', dateTimeOptions).replaceAll('/', '-')})`}
+              {t`当前版本`}: {`MyGO v${config.version} (${__INFO.buildTime.toLocaleString('zh-CN', dateTimeOptions).replaceAll('/', '-')})`}
               <br />
               {/* {
                 latestRelease &&

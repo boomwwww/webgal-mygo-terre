@@ -1,6 +1,6 @@
 import GameElement from "./GameElement";
 import styles from "./sidebar.module.scss";
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {
   Button, Checkbox, Dropdown,
   Input,
@@ -17,6 +17,7 @@ import useSWR from "swr";
 import {api} from "@/api";
 import {CreateGameDto, GameInfoDto} from "@/api/Api";
 import normalizeFileName from "@/utils/normalizeFileName";
+import { config } from "@/config/mygo";
 
 interface ISidebarProps {
   gameList: GameInfoDto[];
@@ -37,7 +38,9 @@ export default function Sidebar(props: ISidebarProps) {
   const [gameDir, setGameDir] = useState(t`新的游戏`);
   const [derivative, setDerivative] = useState<string | undefined>(undefined);
   const [templateDir, setTemplateDir] = useState<string | undefined>(undefined);
-  const [ignoreTemplate, setIgnoreTemplate] = useState<boolean>(false);
+  const [ignoreTemplate, setIgnoreTemplate] = useState<boolean>(true);
+  const derivativeUserSet = useRef(false);
+  const templateUserSet = useRef(false);
 
   // 可用的衍生版
   const derivativeEnginesResp = useSWR('derivativeEngines', async () => {
@@ -46,12 +49,13 @@ export default function Sidebar(props: ISidebarProps) {
   });
 
   useEffect(() => {
+    if (derivativeUserSet.current) return;
     const mygoEngines = derivativeEnginesResp.data?.filter((e) => e.toLocaleLowerCase().includes('mygo')) || [];
     if (mygoEngines[0]) {
-      const theMygoEngine = getMaxVersionFromString(mygoEngines);;
+      const theMygoEngine = getMaxVersionFromString(mygoEngines);
       setDerivative(theMygoEngine);
     }
-  });
+  }, [derivativeEnginesResp.data]);
 
   const templatesResp = useSWR('template-list-selector', async () => {
     const resp = await api.manageTemplateControllerGetTemplateList();
@@ -59,12 +63,13 @@ export default function Sidebar(props: ISidebarProps) {
   });
 
   useEffect(() => {
+    if (templateUserSet.current) return;
     const mygoTemplates = templatesResp.data?.filter((e) => e.name.toLocaleLowerCase().includes('mygo')) || [];
     if (mygoTemplates[0]) {
-      const theMygoTemplate = getMaxVersionFromString(mygoTemplates.map(e => e.name));;
+      const theMygoTemplate = getMaxVersionFromString(mygoTemplates.map(e => e.name));
       setTemplateDir(theMygoTemplate);
     }
-  });
+  }, [templatesResp.data]);
 
   const DEFAULT_OPTION = '__DEFAULT__';
   const defaultTemplateName = 'WebGAL Refine 2026';
@@ -81,6 +86,7 @@ export default function Sidebar(props: ISidebarProps) {
 
   const selector = <Dropdown value={getDerivativeDisplayName(derivative)}
     selectedOptions={[derivative ?? DEFAULT_OPTION]} onOptionSelect={(_, elem) => {
+      derivativeUserSet.current = true;
       setDerivative(elem.optionValue === DEFAULT_OPTION ? undefined : elem.optionValue);
     }}>
     <Option key="default-engine" value={DEFAULT_OPTION}>{t`WebGAL Standard`}</Option>
@@ -92,6 +98,7 @@ export default function Sidebar(props: ISidebarProps) {
   const selectorTemplate = <Dropdown value={getTemplateDisplayName(templateDir)}
     selectedOptions={[templateDir ?? DEFAULT_OPTION]}
     onOptionSelect={(_, elem) => {
+      templateUserSet.current = true;
       setTemplateDir(elem.optionValue === DEFAULT_OPTION ? undefined : elem.optionValue);
     }}>
     <Option key="default-template" value={DEFAULT_OPTION}>{defaultTemplateName}</Option>
@@ -150,6 +157,7 @@ export default function Sidebar(props: ISidebarProps) {
                 placeholder={t`游戏目录`}
               />
               {t`选择游戏引擎版本`}
+              <div style={{ fontSize: "12px", color: "var(--text-weak)" }}>{`推荐使用 MyGO_v${config.version}`}</div>
               {selector}
               <Checkbox
                 checked={ignoreTemplate}
