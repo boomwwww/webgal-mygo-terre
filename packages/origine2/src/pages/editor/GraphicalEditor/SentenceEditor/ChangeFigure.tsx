@@ -654,7 +654,11 @@ export default function ChangeFigure(props: ISentenceEditorProps) {
                 figureFile.set(fileDesc?.name ?? "");
                 submit();
               }}
-              extNames={[...extNameMap.get('image') ?? [], ...extNameMap.get('json') ?? []]}
+              extNames={[
+                ...extNameMap.get('image') ?? [],
+                ...extNameMap.get('json') ?? [],
+                ...extNameMap.get('video') ?? [],
+              ]}
             />
           </div>
         </CommonOptions>}
