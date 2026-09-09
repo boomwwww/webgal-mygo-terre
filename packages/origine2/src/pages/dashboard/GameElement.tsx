@@ -37,6 +37,7 @@ import { routes } from '@/router';
 import { t } from '@lingui/macro';
 import { GameInfoDto } from '@/api/Api';
 import useEditorStore from '@/store/useEditorStore';
+import useTrashFailedToast from '@/hooks/useTrashFailedToast';
 
 interface IGameElementProps {
   gameInfo: GameInfoDto;
@@ -52,7 +53,7 @@ const RenameIcon = bundleIcon(Rename24Filled, Rename24Regular);
 const DeleteIcon = bundleIcon(Delete24Filled, Delete24Regular);
 
 export default function GameElement(props: IGameElementProps) {
-  const soureBase = 'background';
+  const sourceBase = 'background';
 
   let className = styles.gameElement_main;
   if (props.checked) {
@@ -71,7 +72,8 @@ export default function GameElement(props: IGameElementProps) {
   const isShowRenameDialog = useValue(false);
   const newGameName = useValue(props.gameInfo.dir);
   const deleteChecked = useValue(false);
-  const isTrash = false;
+  const isTrash = useEditorStore.use.isTrash();
+  const toastTrashFailed = useTrashFailedToast();
 
   const openInFileExplorer = () => {
     api.manageGameControllerOpenGameDict(props.gameInfo.dir);
@@ -90,7 +92,12 @@ export default function GameElement(props: IGameElementProps) {
 
   const deleteThisGame = async () => {
     if (isTrash) {
-      await api.manageGameControllerTrash({ gameName: props.gameInfo.dir });
+      try {
+        await api.manageGameControllerTrash({ gameName: props.gameInfo.dir });
+      } catch {
+        toastTrashFailed();
+        return;
+      }
     } else {
       await api.manageGameControllerDelete({ gameName: props.gameInfo.dir });
     }
@@ -104,7 +111,7 @@ export default function GameElement(props: IGameElementProps) {
     <>
       <div onClick={props.onClick} className={className} id={props.gameInfo.dir}>
         <img
-          src={`/games/${props.gameInfo.dir}/game/${soureBase}/${props.gameInfo.cover.trim()}`}
+          src={`/games/${props.gameInfo.dir}/game/${sourceBase}/${props.gameInfo.cover}`}
           alt={props.gameInfo.name}
           className={styles.gameElement_cover}
         />
